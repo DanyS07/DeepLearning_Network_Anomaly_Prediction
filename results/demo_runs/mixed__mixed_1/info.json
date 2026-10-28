@@ -1,0 +1,100 @@
+{
+  "run_id": "new/mixed/mixed_1",
+  "scenario": "mixed",
+  "baseline_latency_ms": 44.85,
+  "thresholds": {
+    "gru": 0.8200000000000001,
+    "lstm": 0.74,
+    "tcn": 0.9,
+    "logistic_regression": 0.9790089627989144,
+    "random_forest": 0.5
+  },
+  "threshold_op": "fa5",
+  "onsets": [
+    {
+      "t": 182.005,
+      "type": "high_latency",
+      "event_id": "new/mixed/mixed_1#1"
+    },
+    {
+      "t": 386.002,
+      "type": "congestion",
+      "event_id": "new/mixed/mixed_1#2"
+    },
+    {
+      "t": 564.011,
+      "type": "packet_loss",
+      "event_id": "new/mixed/mixed_1#3"
+    },
+    {
+      "t": 802.005,
+      "type": "bandwidth_degradation",
+      "event_id": "new/mixed/mixed_1#4"
+    },
+    {
+      "t": 1038.0,
+      "type": "queue_buildup",
+      "event_id": "new/mixed/mixed_1#5"
+    },
+    {
+      "t": 1222.033,
+      "type": "traffic_burst",
+      "event_id": "new/mixed/mixed_1#6"
+    },
+    {
+      "t": 1248.028,
+      "type": "traffic_burst",
+      "event_id": "new/mixed/mixed_1#7"
+    },
+    {
+      "t": 1271.031,
+      "type": "traffic_burst",
+      "event_id": "new/mixed/mixed_1#8"
+    }
+  ],
+  "episodes": [
+    {
+      "id": 1,
+      "type": "high_latency",
+      "start": 168.206,
+      "end": 251.195
+    },
+    {
+      "id": 2,
+      "type": "congestion",
+      "start": 376.707,
+      "end": 462.695
+    },
+    {
+      "id": 3,
+      "type": "packet_loss",
+      "start": 556.548,
+      "end": 648.543
+    },
+    {
+      "id": 4,
+      "type": "bandwidth_degradation",
+      "start": 767.828,
+      "end": 871.315
+    },
+    {
+      "id": 5,
+      "type": "queue_buildup",
+      "start": 989.828,
+      "end": 1094.933
+    },
+    {
+      "id": 6,
+      "type": "traffic_burst",
+      "start": 1221.381,
+      "end": 1295.865
+    }
+  ],
+  "models": [
+    "gru",
+    "lstm",
+    "tcn",
+    "logistic_regression",
+    "random_forest"
+  ]
+}

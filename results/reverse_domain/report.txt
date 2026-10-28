@@ -1,0 +1,24 @@
+==============================================================================
+REVERSE DOMAIN EVALUATION: UTM train/calibration -> VirtualBox external test
+==============================================================================
+
+UTM training runs: 35; VirtualBox external runs: 35
+
+ARGMAX RESULTS
+model                  event detect   lead (s)    FA/hour   macro-F1
+logistic_regression           0.813       7.58      203.7      0.338
+random_forest                 0.784       7.50        8.5      0.641
+lstm                          0.716       7.80       84.6      0.367
+gru                           0.761       7.83       43.1      0.499
+tcn                           0.769       8.04       72.8      0.522
+
+CALIBRATED fa5 RESULTS
+model                  event detect   lead (s)    FA/hour   macro-F1
+logistic_regression           0.575       6.57       75.7      0.358
+random_forest                 0.776       7.46        8.1      0.629
+lstm                          0.679       7.71       67.8      0.371
+gru                           0.679       7.95        7.9      0.560
+tcn                           0.746       7.98       15.5      0.591
+
+Per-class metrics: results/reverse_domain/per_class.csv
+Event metrics: results/reverse_domain/events.csv

@@ -1,0 +1,147 @@
+==============================================================================
+EVALUATION REPORT (mean +- std over folds)
+==============================================================================
+
+A. CALIBRATED: threshold set on validation runs for <= 5 false alarms / hour  (HEADLINE)
+------------------------------------------------------------------------------
+model                   event detect      lead (s)     FA / hour        macro-F1
+logistic_regression   0.774 +- 0.074  7.34 +- 0.46    5.6 +- 3.4  0.650 +- 0.092
+random_forest         0.761 +- 0.039  8.31 +- 0.25    9.0 +- 6.6  0.734 +- 0.066
+lstm                  0.806 +- 0.044  7.78 +- 0.42    6.4 +- 4.1  0.727 +- 0.066
+gru                   0.791 +- 0.032  8.01 +- 0.44    6.4 +- 2.4  0.714 +- 0.071
+tcn                   0.790 +- 0.047  7.81 +- 0.44    7.5 +- 7.3  0.706 +- 0.051
+
+B. DEFAULT: warn when an anomaly class is most likely (models not comparable)
+------------------------------------------------------------------------------
+model                   event detect      lead (s)     FA / hour        macro-F1
+logistic_regression   0.843 +- 0.060  8.03 +- 0.75  45.0 +- 23.7  0.658 +- 0.065
+random_forest         0.761 +- 0.039  8.30 +- 0.27    8.3 +- 5.4  0.735 +- 0.064
+lstm                  0.827 +- 0.058  8.00 +- 0.63   17.0 +- 5.3  0.721 +- 0.065
+gru                   0.836 +- 0.041  8.29 +- 0.65  28.7 +- 17.2  0.700 +- 0.071
+tcn                   0.851 +- 0.044  8.06 +- 0.44  44.7 +- 31.2  0.690 +- 0.045
+
+event detect = share of onsets with >=1 correct warning in the 10 s before
+lead (s)     = mean seconds of warning for detected onsets (max 10)
+FA / hour    = separate false alarms per hour of normal traffic (test runs)
+
+PER CLASS - logistic_regression (fa5)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+normal                                 -         -  0.986 +- 0.002   0.997     0.974
+congestion                0.800 +- 0.447      8.29  0.672 +- 0.388   0.671     0.706
+high_latency              1.000 +- 0.000      7.67  0.745 +- 0.117   0.700     0.873
+packet_loss               1.000 +- 0.000      6.13  0.690 +- 0.127   0.574     0.902
+bandwidth_degradation     0.333 +- 0.333      2.17  0.076 +- 0.082   0.041     0.500
+queue_buildup             0.900 +- 0.224      6.63  0.671 +- 0.332   0.644     0.889
+traffic_burst             0.732 +- 0.057      7.89  0.710 +- 0.051   0.568     0.955
+
+PER CLASS - random_forest (fa5)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+normal                                 -         -  0.986 +- 0.003   0.990     0.981
+congestion                0.800 +- 0.447      9.29  0.780 +- 0.437   0.782     0.778
+high_latency              1.000 +- 0.000      8.87  0.912 +- 0.061   0.907     0.927
+packet_loss               1.000 +- 0.000      7.67  0.805 +- 0.035   0.725     0.923
+bandwidth_degradation     0.133 +- 0.298      3.50  0.057 +- 0.128   0.048     0.070
+queue_buildup             1.000 +- 0.000      9.60  0.848 +- 0.120   0.976     0.772
+traffic_burst             0.732 +- 0.057      8.02  0.753 +- 0.047   0.672     0.864
+
+PER CLASS - lstm (fa5)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+normal                                 -         -  0.985 +- 0.005   0.990     0.981
+congestion                0.900 +- 0.224      8.00  0.800 +- 0.292   0.793     0.937
+high_latency              1.000 +- 0.000      7.87  0.817 +- 0.086   0.770     0.894
+packet_loss               1.000 +- 0.000      7.00  0.777 +- 0.087   0.708     0.888
+bandwidth_degradation     0.267 +- 0.365      1.00  0.032 +- 0.054   0.027     0.138
+queue_buildup             1.000 +- 0.000      8.80  0.911 +- 0.099   0.906     0.932
+traffic_burst             0.775 +- 0.016      8.11  0.764 +- 0.062   0.714     0.837
+
+PER CLASS - gru (fa5)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+normal                                 -         -  0.987 +- 0.002   0.994     0.980
+congestion                0.900 +- 0.224      7.60  0.716 +- 0.373   0.747     0.704
+high_latency              1.000 +- 0.000      8.67  0.891 +- 0.061   0.852     0.942
+packet_loss               1.000 +- 0.000      6.93  0.734 +- 0.123   0.646     0.891
+bandwidth_degradation     0.200 +- 0.183      1.00  0.038 +- 0.035   0.020     0.440
+queue_buildup             0.933 +- 0.149      9.50  0.884 +- 0.106   0.911     0.884
+traffic_burst             0.775 +- 0.016      8.11  0.750 +- 0.072   0.684     0.846
+
+PER CLASS - tcn (fa5)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+normal                                 -         -  0.988 +- 0.001   0.996     0.980
+congestion                0.900 +- 0.224      7.27  0.736 +- 0.365   0.758     0.899
+high_latency              1.000 +- 0.000      8.27  0.841 +- 0.022   0.810     0.904
+packet_loss               1.000 +- 0.000      7.00  0.754 +- 0.129   0.698     0.893
+bandwidth_degradation     0.133 +- 0.298      1.00  0.026 +- 0.058   0.014     0.200
+queue_buildup             1.000 +- 0.000      7.87  0.800 +- 0.117   0.775     0.873
+traffic_burst             0.775 +- 0.016      8.11  0.798 +- 0.040   0.718     0.900
+
+CHOSEN ALARM THRESHOLDS (1 - P(normal)), per fold
+------------------------------------------------------------------------------
+logistic_regression  fa5    0.9790  0.9930  0.9268  0.8800  0.9918
+random_forest        fa5    0.5000  0.6200  0.4400  0.3600  0.6200
+lstm                 fa5    0.5400  0.7200  0.7400  0.7800  0.7400
+gru                  fa5    0.7800  0.8200  0.8200  0.8600  0.9542
+tcn                  fa5    0.9000  0.9000  0.7600  0.9464  0.9268
+
+EXTERNAL (other machine; final model trained on all main-machine runs)
+------------------------------------------------------------------------------
+logistic_regression  argmax event detect 0.600  lead 7.39 s  FA/h 4.4  macro-F1 0.523  (125 events)
+logistic_regression  fa5    event detect 0.480  lead 5.85 s  FA/h 1.1  macro-F1 0.389  (125 events)
+random_forest        argmax event detect 0.552  lead 7.66 s  FA/h 7.5  macro-F1 0.501  (125 events)
+random_forest        fa5    event detect 0.552  lead 7.70 s  FA/h 9.3  macro-F1 0.494  (125 events)
+lstm                 argmax event detect 0.736  lead 6.98 s  FA/h 4.2  macro-F1 0.577  (125 events)
+lstm                 fa5    event detect 0.688  lead 6.88 s  FA/h 1.6  macro-F1 0.537  (125 events)
+gru                  argmax event detect 0.736  lead 7.62 s  FA/h 9.3  macro-F1 0.606  (125 events)
+gru                  fa5    event detect 0.696  lead 7.70 s  FA/h 1.8  macro-F1 0.583  (125 events)
+tcn                  argmax event detect 0.736  lead 7.30 s  FA/h 18.8  macro-F1 0.593  (125 events)
+tcn                  fa5    event detect 0.680  lead 7.16 s  FA/h 2.7  macro-F1 0.538  (125 events)
+Note: external runs contain only the classes collected on that machine.
+
+EXTERNAL PER CLASS (headline setting)
+------------------------------------------------------------------------------
+class                       event detect  lead (s)       window F1  recall precision
+[logistic_regression]
+normal                                 -         -           0.979   1.000     0.960
+congestion                         1.000      7.50           0.741   0.741     0.741
+high_latency                       0.538      3.43           0.276   0.164     0.875
+packet_loss                        0.933      4.50           0.393   0.246     0.972
+bandwidth_degradation              0.000         -           0.000   0.000     0.000
+queue_buildup                      0.000         -           0.000   0.000     0.000
+traffic_burst                      0.435      6.45           0.331   0.198     0.990
+[random_forest]
+normal                                 -         -           0.983   0.992     0.974
+congestion                         1.000      9.00           0.704   0.931     0.565
+high_latency                       1.000      8.54           0.892   0.867     0.917
+packet_loss                        0.000         -           0.000   0.000     0.000
+bandwidth_degradation              0.083      1.00           0.009   0.009     0.009
+queue_buildup                      0.273      5.00           0.180   0.100     0.917
+traffic_burst                      0.645      7.41           0.693   0.567     0.892
+[lstm]
+normal                                 -         -           0.986   0.999     0.972
+congestion                         1.000      6.75           0.655   0.655     0.655
+high_latency                       1.000      7.77           0.882   0.789     1.000
+packet_loss                        0.867      4.23           0.457   0.296     1.000
+bandwidth_degradation              0.000         -           0.000   0.000     0.000
+queue_buildup                      0.182      2.00           0.070   0.036     1.000
+traffic_burst                      0.742      7.61           0.708   0.557     0.972
+[gru]
+normal                                 -         -           0.989   0.999     0.978
+congestion                         1.000      9.50           0.735   0.983     0.588
+high_latency                       1.000      8.85           0.927   0.898     0.958
+packet_loss                        1.000      6.53           0.691   0.542     0.951
+bandwidth_degradation              0.000         -           0.000   0.000     0.000
+queue_buildup                      0.182      1.00           0.036   0.018     1.000
+traffic_burst                      0.726      7.58           0.706   0.549     0.989
+[tcn]
+normal                                 -         -           0.986   0.999     0.973
+congestion                         1.000      8.00           0.699   0.750     0.654
+high_latency                       1.000      6.69           0.804   0.672     1.000
+packet_loss                        0.933      5.36           0.563   0.394     0.982
+bandwidth_degradation              0.000         -           0.000   0.000     0.000
+queue_buildup                      0.000         -           0.000   0.000     0.000
+traffic_burst                      0.742      7.61           0.716   0.579     0.938
+Interpretation: zero or near-zero bandwidth-degradation lead time is consistent with capacity loss becoming observable only when throughput is constrained.

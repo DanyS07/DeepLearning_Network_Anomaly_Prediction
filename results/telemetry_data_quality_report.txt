@@ -1,0 +1,72 @@
+======================================================================
+NETWORK TELEMETRY DATA QUALITY REPORT
+======================================================================
+
+Runs loaded      : 71
+Raw rows         : 63559
+Clean rows       : 63488
+Rows dropped     : 71 (first row of each run + invalid/duplicate rows)
+
+RUNS PER MACHINE AND SCENARIO
+----------------------------------------------------------------------
+utm   bandwidth_degradation    5 runs
+utm   congestion               5 runs
+utm   high_latency             5 runs
+utm   normal                   5 runs
+utm   packet_loss              5 runs
+utm   queue_buildup            5 runs
+utm   traffic_burst            5 runs
+vbox  bandwidth_degradation    5 runs
+vbox  congestion               5 runs
+vbox  high_latency             5 runs
+vbox  normal                   6 runs
+vbox  packet_loss              5 runs
+vbox  queue_buildup            5 runs
+vbox  traffic_burst            5 runs
+
+TIMING
+----------------------------------------------------------------------
+actual_delta_t median 1.000 s, max 18.634 s
+Runs with recording gaps (> 1.5 s): 10
+  vbox/congestion/congestion_5: 1 gap(s), max 1.9 s
+  vbox/high_latency/high_latency_2: 2 gap(s), max 2.1 s
+  vbox/normal/demo: 258 gap(s), max 3.0 s
+  vbox/packet_loss/packet_loss_3: 1 gap(s), max 18.6 s
+  utm/bandwidth_degradation/bandwidth_degradation_4: 3 gap(s), max 2.7 s
+  utm/bandwidth_degradation/bandwidth_degradation_5: 2 gap(s), max 2.0 s
+  utm/queue_buildup/queue_buildup_2: 2 gap(s), max 1.9 s
+  utm/queue_buildup/queue_buildup_3: 1 gap(s), max 1.7 s
+  utm/queue_buildup/queue_buildup_4: 1 gap(s), max 1.6 s
+  utm/queue_buildup/queue_buildup_5: 5 gap(s), max 1.9 s
+Short runs (< 890 rows): 4
+  vbox/high_latency/high_latency_5: 883 rows
+  vbox/normal/demo: 655 rows
+  vbox/packet_loss/packet_loss_3: 883 rows
+  vbox/traffic_burst/traffic_2: 852 rows
+
+MISSING VALUES (rows kept, flagged in missing_any)
+----------------------------------------------------------------------
+latency_ms: 8
+latency_max_ms: 8
+ping_loss_pct: 254
+
+LABEL FIX
+----------------------------------------------------------------------
+traffic_burst rows switched 0 -> 1: 376
+
+BASELINE LATENCY PER MACHINE (ms)
+----------------------------------------------------------------------
+utm: min 40.2, median 40.2, max 40.3
+vbox: min 40.8, median 43.2, max 46.3
+
+LABELS
+----------------------------------------------------------------------
+normal                   49860
+packet_loss              3049
+high_latency             2510
+congestion               2258
+bandwidth_degradation    2245
+queue_buildup            2179
+traffic_burst            1387
+
+Not done here: scaling, future labels, splitting.

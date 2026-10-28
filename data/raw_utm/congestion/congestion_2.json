@@ -1,0 +1,1075 @@
+{
+  "experiment_id": "congestion_2",
+  "scenario": "congestion",
+  "seed": 2502462745,
+  "duration_sec": 900,
+  "interval_sec": 1.0,
+  "config": {
+    "BASE_DIR": "/mnt/utm/ML_Project/data/raw",
+    "LOCAL_DIR": "/var/tmp/ml_network_runs",
+    "DEFAULT_DURATION": 900,
+    "INTERVAL": 1.0,
+    "MAX_SCHEDULE_LAG": 2.0,
+    "SCENARIOS": [
+      "normal",
+      "congestion",
+      "high_latency",
+      "packet_loss",
+      "bandwidth_degradation",
+      "queue_buildup",
+      "traffic_burst"
+    ],
+    "LINK_DELAY_MS": 5.0,
+    "BOTTLENECK_MBIT": 50.0,
+    "RETURN_RATE_MBIT": 100.0,
+    "TBF_BURST": "64kb",
+    "TBF_LATENCY": "400ms",
+    "NETEM_LIMIT": 10000,
+    "FLOW_UNIT_MBIT": 2.5,
+    "FLOW_PAYLOAD": 1400,
+    "BG_LEVELS_MBIT": [
+      10.0,
+      12.5,
+      15.0,
+      17.5,
+      20.0,
+      22.5,
+      25.0,
+      27.5,
+      30.0
+    ],
+    "BG_SEGMENT_SEC": [
+      30.0,
+      90.0
+    ],
+    "MAX_BG_FLOWS": 16,
+    "MAX_CROSS_FLOWS": 28,
+    "BG_PORT_BASE": 5100,
+    "CROSS_PORT_BASE": 5200,
+    "PING_TARGET": "10.0.1.1",
+    "PING_INTERVAL": 0.2,
+    "PING_LOSS_WINDOW": 10.0,
+    "PING_SETTLE": 2.0,
+    "PING_MIN_PROBES": 20,
+    "BASELINE_WINDOW": [
+      5.0,
+      60.0
+    ],
+    "FIRST_EPISODE_START": [
+      150.0,
+      300.0
+    ],
+    "EPISODE_RAMP": [
+      20.0,
+      60.0
+    ],
+    "EPISODE_HOLD": [
+      40.0,
+      90.0
+    ],
+    "EPISODE_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EPISODE_GAP": [
+      90.0,
+      180.0
+    ],
+    "END_MARGIN": 30.0,
+    "COOLDOWN_SEC": 15.0,
+    "BURST_TRAIN": [
+      60.0,
+      120.0
+    ],
+    "BURST_ON": [
+      4.0,
+      12.0
+    ],
+    "BURST_OFF": [
+      6.0,
+      25.0
+    ],
+    "BURST_MBIT": 45.0,
+    "EXCURSION_MEAN_SPACING": 180.0,
+    "EXCURSION_EARLIEST": 90.0,
+    "EXCURSION_CLEARANCE": 30.0,
+    "EXCURSION_RAMP": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_HOLD": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EXCURSION_LOAD_MBIT": [
+      2.5,
+      10.0
+    ],
+    "EXCURSION_DELAY_MS": [
+      5.0,
+      25.0
+    ],
+    "EXCURSION_LOSS_PCT": [
+      0.5,
+      3.0
+    ],
+    "CONGESTION_EXTRA_MBIT": 60.0,
+    "WIRE_OVERHEAD": 1.0549,
+    "QUEUE_TARGET_FRACTION": 0.6,
+    "QUEUE_CEILING_FACTOR": 1.15,
+    "QUEUE_CTRL_TAU": 6.0,
+    "QUEUE_CTRL_KI": 0.03,
+    "QUEUE_GUARD_FRACTION": 0.85,
+    "QUEUE_MAX_EXCESS": 0.025,
+    "QUEUE_CTRL_I_MAX": 2.0,
+    "TRIM_PORT": 5300,
+    "TRIM_MIN_STEP_MBIT": 0.1,
+    "DEGRADED_RATE_MBIT": 8.0,
+    "HIGH_DELAY_MS": 150.0,
+    "LOSS_TARGET_PCT": 20.0,
+    "LAT_RISE_MS": 50.0,
+    "LOSS_ONSET_PCT": 5.0,
+    "DROP_RATIO_ONSET": 0.02,
+    "QUEUE_DELAY_ONSET_MS": 50.0,
+    "SHORTFALL_ONSET": 0.1,
+    "STOP_REQUESTED": false,
+    "TBF_BUFFER_BYTES": 2565536.0,
+    "STAT_NAMES": [
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors"
+    ],
+    "TC_MARKER": "__TC_BEGIN__",
+    "FIELDNAMES": [
+      "experiment_id",
+      "scenario",
+      "seed",
+      "timestamp",
+      "elapsed_sec",
+      "actual_delta_t",
+      "sampling_delay_sec",
+      "phase",
+      "episode_id",
+      "benign_excursion",
+      "injected_intensity",
+      "injected_bg_mbit",
+      "injected_cross_mbit",
+      "injected_delay_ms",
+      "injected_loss_pct",
+      "injected_rate_mbit",
+      "injected_queue_target_bytes",
+      "latency_ms",
+      "latency_max_ms",
+      "ping_replies",
+      "ping_loss_pct",
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors",
+      "rx_bytes_per_sec",
+      "tx_bytes_per_sec",
+      "rx_packets_per_sec",
+      "tx_packets_per_sec",
+      "tx_dropped_per_sec",
+      "ingress_rx_bytes_per_sec",
+      "ingress_rx_packets_per_sec",
+      "qdisc_dropped",
+      "qdisc_dropped_per_sec",
+      "tbf_dropped_per_sec",
+      "netem_dropped_per_sec",
+      "qdisc_backlog_bytes",
+      "qdisc_backlog_packets",
+      "netem_backlog_packets",
+      "label",
+      "anomaly_type"
+    ]
+  },
+  "schedule": {
+    "background": [
+      {
+        "start": 0.0,
+        "end": 53.906,
+        "mbit": 10.0
+      },
+      {
+        "start": 53.906,
+        "end": 143.331,
+        "mbit": 15.0
+      },
+      {
+        "start": 143.331,
+        "end": 222.96,
+        "mbit": 10.0
+      },
+      {
+        "start": 222.96,
+        "end": 295.322,
+        "mbit": 22.5
+      },
+      {
+        "start": 295.322,
+        "end": 328.142,
+        "mbit": 17.5
+      },
+      {
+        "start": 328.142,
+        "end": 361.763,
+        "mbit": 10.0
+      },
+      {
+        "start": 361.763,
+        "end": 413.504,
+        "mbit": 17.5
+      },
+      {
+        "start": 413.504,
+        "end": 482.047,
+        "mbit": 10.0
+      },
+      {
+        "start": 482.047,
+        "end": 571.757,
+        "mbit": 30.0
+      },
+      {
+        "start": 571.757,
+        "end": 610.789,
+        "mbit": 25.0
+      },
+      {
+        "start": 610.789,
+        "end": 689.483,
+        "mbit": 25.0
+      },
+      {
+        "start": 689.483,
+        "end": 752.038,
+        "mbit": 27.5
+      },
+      {
+        "start": 752.038,
+        "end": 820.603,
+        "mbit": 20.0
+      },
+      {
+        "start": 820.603,
+        "end": 860.532,
+        "mbit": 22.5
+      },
+      {
+        "start": 860.532,
+        "end": 900,
+        "mbit": 20.0
+      }
+    ],
+    "episodes": [
+      {
+        "id": 1,
+        "start": 168.702,
+        "ramp_end": 212.45,
+        "hold_end": 267.594,
+        "end": 281.243
+      },
+      {
+        "id": 2,
+        "start": 427.19,
+        "ramp_end": 471.497,
+        "hold_end": 531.797,
+        "end": 538.722
+      },
+      {
+        "id": 3,
+        "start": 682.08,
+        "ramp_end": 738.4,
+        "hold_end": 787.113,
+        "end": 794.293
+      }
+    ],
+    "excursions": [
+      {
+        "id": 1,
+        "kind": "delay",
+        "magnitude": 13.39,
+        "start": 96.298,
+        "ramp_end": 106.631,
+        "hold_end": 124.168,
+        "end": 130.774
+      },
+      {
+        "id": 2,
+        "kind": "delay",
+        "magnitude": 10.16,
+        "start": 322.262,
+        "ramp_end": 346.454,
+        "hold_end": 375.065,
+        "end": 388.453
+      },
+      {
+        "id": 3,
+        "kind": "delay",
+        "magnitude": 6.7,
+        "start": 569.813,
+        "ramp_end": 582.018,
+        "hold_end": 604.565,
+        "end": 617.484
+      },
+      {
+        "id": 4,
+        "kind": "load",
+        "magnitude": 2.68,
+        "start": 831.152,
+        "ramp_end": 846.063,
+        "hold_end": 861.773,
+        "end": 868.646
+      }
+    ]
+  },
+  "actions": [
+    {
+      "t": 0.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 54.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 97.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 98.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 99.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 100.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 101.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 102.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 103.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 104.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 105.0,
+      "netem_delay_ms": 16.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 106.0,
+      "netem_delay_ms": 18.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 125.0,
+      "netem_delay_ms": 17.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 126.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 127.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 128.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 129.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 130.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 131.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 144.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 170.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 172.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 174.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 176.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 177.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 179.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 181.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 183.0,
+      "cross_flows": 8
+    },
+    {
+      "t": 185.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 187.0,
+      "cross_flows": 10
+    },
+    {
+      "t": 188.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 190.0,
+      "cross_flows": 12
+    },
+    {
+      "t": 192.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 194.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 196.0,
+      "cross_flows": 15
+    },
+    {
+      "t": 197.0,
+      "cross_flows": 16
+    },
+    {
+      "t": 199.0,
+      "cross_flows": 17
+    },
+    {
+      "t": 201.0,
+      "cross_flows": 18
+    },
+    {
+      "t": 203.0,
+      "cross_flows": 19
+    },
+    {
+      "t": 205.0,
+      "cross_flows": 20
+    },
+    {
+      "t": 207.0,
+      "cross_flows": 21
+    },
+    {
+      "t": 208.0,
+      "cross_flows": 22
+    },
+    {
+      "t": 210.0,
+      "cross_flows": 23
+    },
+    {
+      "t": 212.0,
+      "cross_flows": 24
+    },
+    {
+      "t": 268.0,
+      "cross_flows": 23
+    },
+    {
+      "t": 269.0,
+      "cross_flows": 22
+    },
+    {
+      "t": 270.0,
+      "cross_flows": 20
+    },
+    {
+      "t": 271.0,
+      "cross_flows": 18
+    },
+    {
+      "t": 272.0,
+      "cross_flows": 16
+    },
+    {
+      "t": 273.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 274.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 275.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 276.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 277.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 278.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 279.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 280.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 281.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 282.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 296.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 324.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 326.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 329.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 329.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 331.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 333.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 336.001,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 338.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 341.001,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 343.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 345.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 362.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 376.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 378.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 379.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 380.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 382.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 383.001,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 384.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 386.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 387.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 388.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 414.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 429.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 430.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 432.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 434.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 436.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 438.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 440.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 442.0,
+      "cross_flows": 8
+    },
+    {
+      "t": 443.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 445.0,
+      "cross_flows": 10
+    },
+    {
+      "t": 447.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 449.0,
+      "cross_flows": 12
+    },
+    {
+      "t": 451.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 453.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 454.0,
+      "cross_flows": 15
+    },
+    {
+      "t": 456.0,
+      "cross_flows": 16
+    },
+    {
+      "t": 458.0,
+      "cross_flows": 17
+    },
+    {
+      "t": 460.0,
+      "cross_flows": 18
+    },
+    {
+      "t": 462.0,
+      "cross_flows": 19
+    },
+    {
+      "t": 464.0,
+      "cross_flows": 20
+    },
+    {
+      "t": 466.0,
+      "cross_flows": 21
+    },
+    {
+      "t": 467.0,
+      "cross_flows": 22
+    },
+    {
+      "t": 469.0,
+      "cross_flows": 23
+    },
+    {
+      "t": 471.0,
+      "cross_flows": 24
+    },
+    {
+      "t": 532.0,
+      "cross_flows": 23
+    },
+    {
+      "t": 533.0,
+      "cross_flows": 20
+    },
+    {
+      "t": 534.0,
+      "cross_flows": 16
+    },
+    {
+      "t": 535.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 536.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 537.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 538.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 539.0,
+      "bg_flows": 12
+    },
+    {
+      "t": 539.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 571.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 572.0,
+      "bg_flows": 10
+    },
+    {
+      "t": 573.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 575.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 577.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 579.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 580.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 582.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 605.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 607.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 609.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 611.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 613.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 615.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 617.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 684.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 686.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 688.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 691.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 693.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 695.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 698.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 700.0,
+      "cross_flows": 8
+    },
+    {
+      "t": 703.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 705.0,
+      "cross_flows": 10
+    },
+    {
+      "t": 707.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 710.0,
+      "cross_flows": 12
+    },
+    {
+      "t": 712.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 714.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 717.0,
+      "cross_flows": 15
+    },
+    {
+      "t": 719.0,
+      "cross_flows": 16
+    },
+    {
+      "t": 721.0,
+      "cross_flows": 17
+    },
+    {
+      "t": 724.0,
+      "cross_flows": 18
+    },
+    {
+      "t": 726.0,
+      "cross_flows": 19
+    },
+    {
+      "t": 728.0,
+      "cross_flows": 20
+    },
+    {
+      "t": 731.0,
+      "cross_flows": 21
+    },
+    {
+      "t": 733.0,
+      "cross_flows": 22
+    },
+    {
+      "t": 735.0,
+      "cross_flows": 23
+    },
+    {
+      "t": 738.0,
+      "cross_flows": 24
+    },
+    {
+      "t": 788.0,
+      "cross_flows": 21
+    },
+    {
+      "t": 789.0,
+      "cross_flows": 18
+    },
+    {
+      "t": 790.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 791.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 792.0,
+      "cross_flows": 8
+    },
+    {
+      "t": 793.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 794.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 795.0,
+      "bg_flows": 8
+    },
+    {
+      "t": 795.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 821.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 839.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 861.0,
+      "bg_flows": 8
+    },
+    {
+      "t": 866.0,
+      "cross_flows": 0
+    }
+  ],
+  "warnings": [],
+  "baseline_latency_ms": 40.3,
+  "observed_onsets": {
+    "1": 200.0,
+    "2": 459.0,
+    "3": 708.0
+  },
+  "burst_onsets": [],
+  "finished_at": "2026-10-02T08:45:01.859020+00:00",
+  "interrupted": false
+}

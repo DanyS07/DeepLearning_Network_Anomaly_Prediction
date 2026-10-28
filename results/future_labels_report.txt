@@ -1,0 +1,72 @@
+======================================================================
+FUTURE-ONSET LABEL REPORT
+======================================================================
+
+Horizon                    : 10 s
+Drop in-episode negatives  : True
+Rows                       : 63488
+Usable anchors             : 43888
+
+ANCHOR STATUS
+----------------------------------------------------------------------
+used                         43888
+anomaly_now                  13628
+cooldown                     2407
+in_episode_far_from_onset    2152
+horizon_incomplete           1413
+
+TARGETS (usable anchors)
+----------------------------------------------------------------------
+normal                     41563  (94.7%)
+traffic_burst               1050  (2.4%)
+packet_loss                  284  (0.6%)
+queue_buildup                257  (0.6%)
+high_latency                 255  (0.6%)
+bandwidth_degradation        249  (0.6%)
+congestion                   230  (0.5%)
+
+ONSET EVENTS PER CLASS (these drive event-level metrics)
+----------------------------------------------------------------------
+bandwidth_degradation    26 events
+congestion               24 events
+high_latency             26 events
+packet_loss              30 events
+queue_buildup            26 events
+traffic_burst            129 events
+
+Onsets found in labels     : 261
+Onsets with >=1 anchor     : 261
+
+POSITIVE ANCHORS PER EVENT (expect ~10 each)
+----------------------------------------------------------------------
+min 3, median 9, max 10
+  only 5 anchors: utm/bandwidth_degradation/bandwidth_degradation_5#1
+  only 6 anchors: utm/traffic_burst/traffic_burst_1#6
+  only 4 anchors: utm/traffic_burst/traffic_burst_2#12
+  only 5 anchors: utm/traffic_burst/traffic_burst_2#3
+  only 4 anchors: utm/traffic_burst/traffic_burst_3#11
+  only 4 anchors: utm/traffic_burst/traffic_burst_3#2
+  only 6 anchors: utm/traffic_burst/traffic_burst_3#3
+  only 4 anchors: utm/traffic_burst/traffic_burst_3#7
+  only 3 anchors: utm/traffic_burst/traffic_burst_4#10
+  only 7 anchors: utm/traffic_burst/traffic_burst_4#11
+  only 4 anchors: utm/traffic_burst/traffic_burst_4#12
+  only 4 anchors: utm/traffic_burst/traffic_burst_4#7
+  only 5 anchors: utm/traffic_burst/traffic_burst_5#10
+  only 4 anchors: utm/traffic_burst/traffic_burst_5#12
+  only 6 anchors: utm/traffic_burst/traffic_burst_5#9
+  only 6 anchors: vbox/traffic_burst/traffic_1#10
+  only 5 anchors: vbox/traffic_burst/traffic_1#2
+  only 4 anchors: vbox/traffic_burst/traffic_1#4
+  only 5 anchors: vbox/traffic_burst/traffic_2#2
+  only 5 anchors: vbox/traffic_burst/traffic_2#8
+  only 7 anchors: vbox/traffic_burst/traffic_3#10
+  only 5 anchors: vbox/traffic_burst/traffic_3#13
+  only 4 anchors: vbox/traffic_burst/traffic_4#14
+  only 7 anchors: vbox/traffic_burst/traffic_4#6
+  only 7 anchors: vbox/traffic_burst/traffic_5#13
+  only 4 anchors: vbox/traffic_burst/traffic_5#2
+  only 7 anchors: vbox/traffic_burst/traffic_5#3
+  only 7 anchors: vbox/traffic_burst/traffic_5#7
+
+Inspect a few onsets by eye before Stage 4 (see the check printed at the end of this script).

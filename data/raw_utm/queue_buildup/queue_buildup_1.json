@@ -1,0 +1,1236 @@
+{
+  "experiment_id": "queue_buildup_1",
+  "scenario": "queue_buildup",
+  "seed": 2051656685,
+  "duration_sec": 900,
+  "interval_sec": 1.0,
+  "config": {
+    "BASE_DIR": "/mnt/utm/ML_Project/data/raw",
+    "LOCAL_DIR": "/var/tmp/ml_network_runs",
+    "DEFAULT_DURATION": 900,
+    "INTERVAL": 1.0,
+    "MAX_SCHEDULE_LAG": 2.0,
+    "SCENARIOS": [
+      "normal",
+      "congestion",
+      "high_latency",
+      "packet_loss",
+      "bandwidth_degradation",
+      "queue_buildup",
+      "traffic_burst"
+    ],
+    "LINK_DELAY_MS": 5.0,
+    "BOTTLENECK_MBIT": 50.0,
+    "RETURN_RATE_MBIT": 100.0,
+    "TBF_BURST": "64kb",
+    "TBF_LATENCY": "400ms",
+    "NETEM_LIMIT": 10000,
+    "FLOW_UNIT_MBIT": 2.5,
+    "FLOW_PAYLOAD": 1400,
+    "BG_LEVELS_MBIT": [
+      10.0,
+      12.5,
+      15.0,
+      17.5,
+      20.0,
+      22.5,
+      25.0,
+      27.5,
+      30.0
+    ],
+    "BG_SEGMENT_SEC": [
+      30.0,
+      90.0
+    ],
+    "MAX_BG_FLOWS": 16,
+    "MAX_CROSS_FLOWS": 28,
+    "BG_PORT_BASE": 5100,
+    "CROSS_PORT_BASE": 5200,
+    "PING_TARGET": "10.0.1.1",
+    "PING_INTERVAL": 0.2,
+    "PING_LOSS_WINDOW": 10.0,
+    "PING_SETTLE": 2.0,
+    "PING_MIN_PROBES": 20,
+    "BASELINE_WINDOW": [
+      5.0,
+      60.0
+    ],
+    "FIRST_EPISODE_START": [
+      150.0,
+      300.0
+    ],
+    "EPISODE_RAMP": [
+      20.0,
+      60.0
+    ],
+    "EPISODE_HOLD": [
+      40.0,
+      90.0
+    ],
+    "EPISODE_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EPISODE_GAP": [
+      90.0,
+      180.0
+    ],
+    "END_MARGIN": 30.0,
+    "COOLDOWN_SEC": 15.0,
+    "BURST_TRAIN": [
+      60.0,
+      120.0
+    ],
+    "BURST_ON": [
+      4.0,
+      12.0
+    ],
+    "BURST_OFF": [
+      6.0,
+      25.0
+    ],
+    "BURST_MBIT": 45.0,
+    "EXCURSION_MEAN_SPACING": 180.0,
+    "EXCURSION_EARLIEST": 90.0,
+    "EXCURSION_CLEARANCE": 30.0,
+    "EXCURSION_RAMP": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_HOLD": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EXCURSION_LOAD_MBIT": [
+      2.5,
+      10.0
+    ],
+    "EXCURSION_DELAY_MS": [
+      5.0,
+      25.0
+    ],
+    "EXCURSION_LOSS_PCT": [
+      0.5,
+      3.0
+    ],
+    "CONGESTION_EXTRA_MBIT": 60.0,
+    "WIRE_OVERHEAD": 1.0549,
+    "QUEUE_TARGET_FRACTION": 0.6,
+    "QUEUE_CEILING_FACTOR": 1.15,
+    "QUEUE_CTRL_TAU": 6.0,
+    "QUEUE_CTRL_KI": 0.03,
+    "QUEUE_GUARD_FRACTION": 0.85,
+    "QUEUE_MAX_EXCESS": 0.025,
+    "QUEUE_CTRL_I_MAX": 2.0,
+    "TRIM_PORT": 5300,
+    "TRIM_MIN_STEP_MBIT": 0.1,
+    "DEGRADED_RATE_MBIT": 8.0,
+    "HIGH_DELAY_MS": 150.0,
+    "LOSS_TARGET_PCT": 20.0,
+    "LAT_RISE_MS": 50.0,
+    "LOSS_ONSET_PCT": 5.0,
+    "DROP_RATIO_ONSET": 0.02,
+    "QUEUE_DELAY_ONSET_MS": 50.0,
+    "SHORTFALL_ONSET": 0.1,
+    "STOP_REQUESTED": false,
+    "TBF_BUFFER_BYTES": 2565536.0,
+    "STAT_NAMES": [
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors"
+    ],
+    "TC_MARKER": "__TC_BEGIN__",
+    "FIELDNAMES": [
+      "experiment_id",
+      "scenario",
+      "seed",
+      "timestamp",
+      "elapsed_sec",
+      "actual_delta_t",
+      "sampling_delay_sec",
+      "phase",
+      "episode_id",
+      "benign_excursion",
+      "injected_intensity",
+      "injected_bg_mbit",
+      "injected_cross_mbit",
+      "injected_delay_ms",
+      "injected_loss_pct",
+      "injected_rate_mbit",
+      "injected_queue_target_bytes",
+      "latency_ms",
+      "latency_max_ms",
+      "ping_replies",
+      "ping_loss_pct",
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors",
+      "rx_bytes_per_sec",
+      "tx_bytes_per_sec",
+      "rx_packets_per_sec",
+      "tx_packets_per_sec",
+      "tx_dropped_per_sec",
+      "ingress_rx_bytes_per_sec",
+      "ingress_rx_packets_per_sec",
+      "qdisc_dropped",
+      "qdisc_dropped_per_sec",
+      "tbf_dropped_per_sec",
+      "netem_dropped_per_sec",
+      "qdisc_backlog_bytes",
+      "qdisc_backlog_packets",
+      "netem_backlog_packets",
+      "label",
+      "anomaly_type"
+    ]
+  },
+  "schedule": {
+    "background": [
+      {
+        "start": 0.0,
+        "end": 64.642,
+        "mbit": 25.0
+      },
+      {
+        "start": 64.642,
+        "end": 105.786,
+        "mbit": 22.5
+      },
+      {
+        "start": 105.786,
+        "end": 169.675,
+        "mbit": 22.5
+      },
+      {
+        "start": 169.675,
+        "end": 259.44,
+        "mbit": 27.5
+      },
+      {
+        "start": 259.44,
+        "end": 327.744,
+        "mbit": 10.0
+      },
+      {
+        "start": 327.744,
+        "end": 376.727,
+        "mbit": 22.5
+      },
+      {
+        "start": 376.727,
+        "end": 444.801,
+        "mbit": 22.5
+      },
+      {
+        "start": 444.801,
+        "end": 520.163,
+        "mbit": 30.0
+      },
+      {
+        "start": 520.163,
+        "end": 609.12,
+        "mbit": 30.0
+      },
+      {
+        "start": 609.12,
+        "end": 691.875,
+        "mbit": 25.0
+      },
+      {
+        "start": 691.875,
+        "end": 733.897,
+        "mbit": 27.5
+      },
+      {
+        "start": 733.897,
+        "end": 791.086,
+        "mbit": 30.0
+      },
+      {
+        "start": 791.086,
+        "end": 841.762,
+        "mbit": 15.0
+      },
+      {
+        "start": 841.762,
+        "end": 900,
+        "mbit": 27.5
+      }
+    ],
+    "episodes": [
+      {
+        "id": 1,
+        "start": 293.511,
+        "ramp_end": 332.054,
+        "hold_end": 414.644,
+        "end": 425.905
+      },
+      {
+        "id": 2,
+        "start": 603.772,
+        "ramp_end": 661.617,
+        "hold_end": 731.818,
+        "end": 740.759
+      }
+    ],
+    "excursions": [
+      {
+        "id": 1,
+        "kind": "load",
+        "magnitude": 7.55,
+        "start": 183.447,
+        "ramp_end": 209.21,
+        "hold_end": 232.332,
+        "end": 239.28
+      },
+      {
+        "id": 2,
+        "kind": "delay",
+        "magnitude": 12.18,
+        "start": 479.222,
+        "ramp_end": 502.707,
+        "hold_end": 526.456,
+        "end": 536.183
+      },
+      {
+        "id": 3,
+        "kind": "load",
+        "magnitude": 4.9,
+        "start": 804.191,
+        "ramp_end": 831.876,
+        "hold_end": 851.734,
+        "end": 859.923
+      }
+    ]
+  },
+  "actions": [
+    {
+      "t": 0.0,
+      "bg_flows": 10
+    },
+    {
+      "t": 65.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 170.0,
+      "bg_flows": 11
+    },
+    {
+      "t": 188.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 197.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 205.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 234.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 236.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 239.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 260.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 294.0,
+      "trim_mbit": 0.56
+    },
+    {
+      "t": 295.0,
+      "trim_mbit": 1.72
+    },
+    {
+      "t": 296.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 296.0,
+      "trim_mbit": 0.37
+    },
+    {
+      "t": 297.0,
+      "trim_mbit": 1.53
+    },
+    {
+      "t": 298.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 298.0,
+      "trim_mbit": 0.18
+    },
+    {
+      "t": 299.0,
+      "trim_mbit": 1.34
+    },
+    {
+      "t": 300.0,
+      "trim_mbit": 2.49
+    },
+    {
+      "t": 301.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 301.0,
+      "trim_mbit": 1.15
+    },
+    {
+      "t": 302.0,
+      "trim_mbit": 2.3
+    },
+    {
+      "t": 303.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 303.0,
+      "trim_mbit": 0.96
+    },
+    {
+      "t": 304.0,
+      "trim_mbit": 2.11
+    },
+    {
+      "t": 305.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 305.0,
+      "trim_mbit": 0.77
+    },
+    {
+      "t": 306.0,
+      "trim_mbit": 1.92
+    },
+    {
+      "t": 307.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 307.0,
+      "trim_mbit": 0.58
+    },
+    {
+      "t": 308.0,
+      "trim_mbit": 1.73
+    },
+    {
+      "t": 309.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 309.0,
+      "trim_mbit": 0.39
+    },
+    {
+      "t": 310.0,
+      "trim_mbit": 1.54
+    },
+    {
+      "t": 311.0,
+      "cross_flows": 8
+    },
+    {
+      "t": 311.0,
+      "trim_mbit": 0.2
+    },
+    {
+      "t": 312.0,
+      "trim_mbit": 1.35
+    },
+    {
+      "t": 313.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 313.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 314.0,
+      "trim_mbit": 1.16
+    },
+    {
+      "t": 315.0,
+      "trim_mbit": 2.31
+    },
+    {
+      "t": 316.0,
+      "cross_flows": 10
+    },
+    {
+      "t": 316.0,
+      "trim_mbit": 0.97
+    },
+    {
+      "t": 317.0,
+      "trim_mbit": 2.12
+    },
+    {
+      "t": 318.0,
+      "cross_flows": 11
+    },
+    {
+      "t": 318.0,
+      "trim_mbit": 0.78
+    },
+    {
+      "t": 319.0,
+      "trim_mbit": 1.93
+    },
+    {
+      "t": 320.0,
+      "cross_flows": 12
+    },
+    {
+      "t": 320.0,
+      "trim_mbit": 0.59
+    },
+    {
+      "t": 321.0,
+      "trim_mbit": 1.74
+    },
+    {
+      "t": 322.0,
+      "cross_flows": 13
+    },
+    {
+      "t": 322.0,
+      "trim_mbit": 0.4
+    },
+    {
+      "t": 323.0,
+      "trim_mbit": 1.55
+    },
+    {
+      "t": 324.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 324.0,
+      "trim_mbit": 0.21
+    },
+    {
+      "t": 325.0,
+      "trim_mbit": 1.36
+    },
+    {
+      "t": 326.0,
+      "cross_flows": 15
+    },
+    {
+      "t": 326.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 327.0,
+      "trim_mbit": 1.11
+    },
+    {
+      "t": 338.0,
+      "trim_mbit": 0.91
+    },
+    {
+      "t": 339.0,
+      "trim_mbit": 0.67
+    },
+    {
+      "t": 340.0,
+      "trim_mbit": 0.44
+    },
+    {
+      "t": 341.0,
+      "trim_mbit": 0.25
+    },
+    {
+      "t": 342.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 343.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 343.0,
+      "trim_mbit": 2.44
+    },
+    {
+      "t": 344.0,
+      "trim_mbit": 2.31
+    },
+    {
+      "t": 345.0,
+      "trim_mbit": 2.2
+    },
+    {
+      "t": 347.0,
+      "trim_mbit": 2.05
+    },
+    {
+      "t": 352.0,
+      "trim_mbit": 1.94
+    },
+    {
+      "t": 354.0,
+      "trim_mbit": 2.04
+    },
+    {
+      "t": 357.0,
+      "trim_mbit": 2.21
+    },
+    {
+      "t": 360.0,
+      "trim_mbit": 2.36
+    },
+    {
+      "t": 364.0,
+      "trim_mbit": 2.48
+    },
+    {
+      "t": 365.0,
+      "cross_flows": 15
+    },
+    {
+      "t": 365.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 370.0,
+      "cross_flows": 14
+    },
+    {
+      "t": 370.0,
+      "trim_mbit": 2.5
+    },
+    {
+      "t": 376.0,
+      "trim_mbit": 2.4
+    },
+    {
+      "t": 391.0,
+      "trim_mbit": 2.3
+    },
+    {
+      "t": 396.0,
+      "trim_mbit": 2.4
+    },
+    {
+      "t": 406.0,
+      "trim_mbit": 2.5
+    },
+    {
+      "t": 412.0,
+      "trim_mbit": 2.39
+    },
+    {
+      "t": 416.0,
+      "trim_mbit": 2.08
+    },
+    {
+      "t": 417.0,
+      "trim_mbit": 0.2
+    },
+    {
+      "t": 418.0,
+      "cross_flows": 12
+    },
+    {
+      "t": 418.0,
+      "trim_mbit": 1.24
+    },
+    {
+      "t": 419.0,
+      "cross_flows": 10
+    },
+    {
+      "t": 419.0,
+      "trim_mbit": 2.29
+    },
+    {
+      "t": 420.0,
+      "cross_flows": 9
+    },
+    {
+      "t": 420.0,
+      "trim_mbit": 0.84
+    },
+    {
+      "t": 421.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 421.0,
+      "trim_mbit": 1.89
+    },
+    {
+      "t": 422.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 422.0,
+      "trim_mbit": 0.43
+    },
+    {
+      "t": 423.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 423.0,
+      "trim_mbit": 1.48
+    },
+    {
+      "t": 424.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 424.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 425.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 425.0,
+      "trim_mbit": 1.08
+    },
+    {
+      "t": 426.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 426.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 426.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 445.0,
+      "bg_flows": 12
+    },
+    {
+      "t": 481.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 483.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 485.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 486.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 488.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 490.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 492.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 494.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 496.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 498.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 500.0,
+      "netem_delay_ms": 16.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 502.0,
+      "netem_delay_ms": 17.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 527.0,
+      "netem_delay_ms": 16.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 528.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 529.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 530.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 531.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 532.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 533.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 534.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 535.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 536.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 604.0,
+      "trim_mbit": 0.1
+    },
+    {
+      "t": 605.0,
+      "trim_mbit": 0.52
+    },
+    {
+      "t": 606.0,
+      "trim_mbit": 0.94
+    },
+    {
+      "t": 607.0,
+      "trim_mbit": 1.37
+    },
+    {
+      "t": 608.0,
+      "trim_mbit": 1.79
+    },
+    {
+      "t": 609.0,
+      "trim_mbit": 2.22
+    },
+    {
+      "t": 610.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 610.0,
+      "trim_mbit": 0.14
+    },
+    {
+      "t": 611.0,
+      "trim_mbit": 0.56
+    },
+    {
+      "t": 612.0,
+      "trim_mbit": 0.99
+    },
+    {
+      "t": 613.0,
+      "trim_mbit": 1.41
+    },
+    {
+      "t": 614.0,
+      "trim_mbit": 1.83
+    },
+    {
+      "t": 615.0,
+      "trim_mbit": 2.26
+    },
+    {
+      "t": 616.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 616.0,
+      "trim_mbit": 0.18
+    },
+    {
+      "t": 617.0,
+      "trim_mbit": 0.6
+    },
+    {
+      "t": 618.0,
+      "trim_mbit": 1.03
+    },
+    {
+      "t": 619.0,
+      "trim_mbit": 1.45
+    },
+    {
+      "t": 620.0,
+      "trim_mbit": 1.88
+    },
+    {
+      "t": 621.0,
+      "trim_mbit": 2.3
+    },
+    {
+      "t": 622.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 622.0,
+      "trim_mbit": 0.22
+    },
+    {
+      "t": 623.0,
+      "trim_mbit": 0.65
+    },
+    {
+      "t": 624.0,
+      "trim_mbit": 1.07
+    },
+    {
+      "t": 625.001,
+      "trim_mbit": 1.49
+    },
+    {
+      "t": 626.0,
+      "trim_mbit": 1.92
+    },
+    {
+      "t": 627.0,
+      "trim_mbit": 2.34
+    },
+    {
+      "t": 628.0,
+      "cross_flows": 4
+    },
+    {
+      "t": 628.0,
+      "trim_mbit": 0.26
+    },
+    {
+      "t": 629.0,
+      "trim_mbit": 0.69
+    },
+    {
+      "t": 630.0,
+      "trim_mbit": 1.11
+    },
+    {
+      "t": 631.0,
+      "trim_mbit": 1.54
+    },
+    {
+      "t": 632.0,
+      "trim_mbit": 1.96
+    },
+    {
+      "t": 633.0,
+      "trim_mbit": 2.38
+    },
+    {
+      "t": 634.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 634.0,
+      "trim_mbit": 0.31
+    },
+    {
+      "t": 635.0,
+      "trim_mbit": 0.73
+    },
+    {
+      "t": 636.0,
+      "trim_mbit": 1.15
+    },
+    {
+      "t": 637.0,
+      "trim_mbit": 1.58
+    },
+    {
+      "t": 638.0,
+      "trim_mbit": 2.0
+    },
+    {
+      "t": 639.0,
+      "trim_mbit": 2.43
+    },
+    {
+      "t": 640.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 640.0,
+      "trim_mbit": 0.35
+    },
+    {
+      "t": 641.0,
+      "trim_mbit": 0.77
+    },
+    {
+      "t": 642.0,
+      "trim_mbit": 1.2
+    },
+    {
+      "t": 643.0,
+      "trim_mbit": 1.62
+    },
+    {
+      "t": 644.0,
+      "trim_mbit": 2.04
+    },
+    {
+      "t": 645.0,
+      "trim_mbit": 2.47
+    },
+    {
+      "t": 646.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 646.0,
+      "trim_mbit": 0.39
+    },
+    {
+      "t": 647.0,
+      "trim_mbit": 0.81
+    },
+    {
+      "t": 648.0,
+      "trim_mbit": 1.1
+    },
+    {
+      "t": 655.0,
+      "trim_mbit": 0.85
+    },
+    {
+      "t": 656.0,
+      "trim_mbit": 0.66
+    },
+    {
+      "t": 657.0,
+      "trim_mbit": 0.5
+    },
+    {
+      "t": 658.0,
+      "trim_mbit": 0.35
+    },
+    {
+      "t": 659.0,
+      "trim_mbit": 0.19
+    },
+    {
+      "t": 660.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 662.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 662.0,
+      "trim_mbit": 2.42
+    },
+    {
+      "t": 664.0,
+      "trim_mbit": 2.22
+    },
+    {
+      "t": 666.0,
+      "trim_mbit": 2.11
+    },
+    {
+      "t": 676.0,
+      "trim_mbit": 2.25
+    },
+    {
+      "t": 679.0,
+      "trim_mbit": 2.35
+    },
+    {
+      "t": 683.0,
+      "trim_mbit": 2.47
+    },
+    {
+      "t": 688.0,
+      "cross_flows": 7
+    },
+    {
+      "t": 688.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 689.0,
+      "cross_flows": 6
+    },
+    {
+      "t": 689.0,
+      "trim_mbit": 2.5
+    },
+    {
+      "t": 695.0,
+      "trim_mbit": 2.39
+    },
+    {
+      "t": 724.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 726.0,
+      "trim_mbit": 1.62
+    },
+    {
+      "t": 727.0,
+      "trim_mbit": 1.76
+    },
+    {
+      "t": 729.0,
+      "trim_mbit": 1.86
+    },
+    {
+      "t": 731.0,
+      "trim_mbit": 2.04
+    },
+    {
+      "t": 733.0,
+      "trim_mbit": 1.89
+    },
+    {
+      "t": 734.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 736.0,
+      "cross_flows": 5
+    },
+    {
+      "t": 736.0,
+      "trim_mbit": 0.54
+    },
+    {
+      "t": 737.001,
+      "cross_flows": 4
+    },
+    {
+      "t": 737.001,
+      "trim_mbit": 0.3
+    },
+    {
+      "t": 738.0,
+      "cross_flows": 3
+    },
+    {
+      "t": 738.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 739.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 739.0,
+      "trim_mbit": 2.32
+    },
+    {
+      "t": 740.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 740.0,
+      "trim_mbit": 2.08
+    },
+    {
+      "t": 741.0,
+      "trim_mbit": 0.0
+    },
+    {
+      "t": 792.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 812.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 826.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 842.0,
+      "bg_flows": 11
+    },
+    {
+      "t": 854.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 858.0,
+      "cross_flows": 0
+    }
+  ],
+  "warnings": [],
+  "baseline_latency_ms": 40.3,
+  "observed_onsets": {
+    "1": 330.0,
+    "2": 648.0
+  },
+  "burst_onsets": [],
+  "finished_at": "2026-10-02T22:52:15.054085+00:00",
+  "interrupted": false
+}

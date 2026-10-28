@@ -1,0 +1,1364 @@
+{
+  "experiment_id": "high_latency_3",
+  "scenario": "high_latency",
+  "seed": 1879915615,
+  "duration_sec": 900,
+  "interval_sec": 1.0,
+  "config": {
+    "BASE_DIR": "/mnt/utm/ML_Project/data/raw",
+    "LOCAL_DIR": "/var/tmp/ml_network_runs",
+    "DEFAULT_DURATION": 900,
+    "INTERVAL": 1.0,
+    "MAX_SCHEDULE_LAG": 2.0,
+    "SCENARIOS": [
+      "normal",
+      "congestion",
+      "high_latency",
+      "packet_loss",
+      "bandwidth_degradation",
+      "queue_buildup",
+      "traffic_burst"
+    ],
+    "LINK_DELAY_MS": 5.0,
+    "BOTTLENECK_MBIT": 50.0,
+    "RETURN_RATE_MBIT": 100.0,
+    "TBF_BURST": "64kb",
+    "TBF_LATENCY": "400ms",
+    "NETEM_LIMIT": 10000,
+    "FLOW_UNIT_MBIT": 2.5,
+    "FLOW_PAYLOAD": 1400,
+    "BG_LEVELS_MBIT": [
+      10.0,
+      12.5,
+      15.0,
+      17.5,
+      20.0,
+      22.5,
+      25.0,
+      27.5,
+      30.0
+    ],
+    "BG_SEGMENT_SEC": [
+      30.0,
+      90.0
+    ],
+    "MAX_BG_FLOWS": 16,
+    "MAX_CROSS_FLOWS": 28,
+    "BG_PORT_BASE": 5100,
+    "CROSS_PORT_BASE": 5200,
+    "PING_TARGET": "10.0.1.1",
+    "PING_INTERVAL": 0.2,
+    "PING_LOSS_WINDOW": 10.0,
+    "PING_SETTLE": 2.0,
+    "PING_MIN_PROBES": 20,
+    "BASELINE_WINDOW": [
+      5.0,
+      60.0
+    ],
+    "FIRST_EPISODE_START": [
+      150.0,
+      300.0
+    ],
+    "EPISODE_RAMP": [
+      20.0,
+      60.0
+    ],
+    "EPISODE_HOLD": [
+      40.0,
+      90.0
+    ],
+    "EPISODE_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EPISODE_GAP": [
+      90.0,
+      180.0
+    ],
+    "END_MARGIN": 30.0,
+    "COOLDOWN_SEC": 15.0,
+    "BURST_TRAIN": [
+      60.0,
+      120.0
+    ],
+    "BURST_ON": [
+      4.0,
+      12.0
+    ],
+    "BURST_OFF": [
+      6.0,
+      25.0
+    ],
+    "BURST_MBIT": 45.0,
+    "EXCURSION_MEAN_SPACING": 180.0,
+    "EXCURSION_EARLIEST": 90.0,
+    "EXCURSION_CLEARANCE": 30.0,
+    "EXCURSION_RAMP": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_HOLD": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EXCURSION_LOAD_MBIT": [
+      2.5,
+      10.0
+    ],
+    "EXCURSION_DELAY_MS": [
+      5.0,
+      25.0
+    ],
+    "EXCURSION_LOSS_PCT": [
+      0.5,
+      3.0
+    ],
+    "CONGESTION_EXTRA_MBIT": 60.0,
+    "WIRE_OVERHEAD": 1.0549,
+    "QUEUE_TARGET_FRACTION": 0.6,
+    "QUEUE_CEILING_FACTOR": 1.15,
+    "QUEUE_CTRL_TAU": 6.0,
+    "QUEUE_CTRL_KI": 0.03,
+    "QUEUE_GUARD_FRACTION": 0.85,
+    "QUEUE_MAX_EXCESS": 0.025,
+    "QUEUE_CTRL_I_MAX": 2.0,
+    "TRIM_PORT": 5300,
+    "TRIM_MIN_STEP_MBIT": 0.1,
+    "DEGRADED_RATE_MBIT": 8.0,
+    "HIGH_DELAY_MS": 150.0,
+    "LOSS_TARGET_PCT": 20.0,
+    "LAT_RISE_MS": 50.0,
+    "LOSS_ONSET_PCT": 5.0,
+    "DROP_RATIO_ONSET": 0.02,
+    "QUEUE_DELAY_ONSET_MS": 50.0,
+    "SHORTFALL_ONSET": 0.1,
+    "STOP_REQUESTED": false,
+    "TBF_BUFFER_BYTES": 2565536.0,
+    "STAT_NAMES": [
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors"
+    ],
+    "TC_MARKER": "__TC_BEGIN__",
+    "FIELDNAMES": [
+      "experiment_id",
+      "scenario",
+      "seed",
+      "timestamp",
+      "elapsed_sec",
+      "actual_delta_t",
+      "sampling_delay_sec",
+      "phase",
+      "episode_id",
+      "benign_excursion",
+      "injected_intensity",
+      "injected_bg_mbit",
+      "injected_cross_mbit",
+      "injected_delay_ms",
+      "injected_loss_pct",
+      "injected_rate_mbit",
+      "injected_queue_target_bytes",
+      "latency_ms",
+      "latency_max_ms",
+      "ping_replies",
+      "ping_loss_pct",
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors",
+      "rx_bytes_per_sec",
+      "tx_bytes_per_sec",
+      "rx_packets_per_sec",
+      "tx_packets_per_sec",
+      "tx_dropped_per_sec",
+      "ingress_rx_bytes_per_sec",
+      "ingress_rx_packets_per_sec",
+      "qdisc_dropped",
+      "qdisc_dropped_per_sec",
+      "tbf_dropped_per_sec",
+      "netem_dropped_per_sec",
+      "qdisc_backlog_bytes",
+      "qdisc_backlog_packets",
+      "netem_backlog_packets",
+      "label",
+      "anomaly_type"
+    ]
+  },
+  "schedule": {
+    "background": [
+      {
+        "start": 0.0,
+        "end": 57.011,
+        "mbit": 12.5
+      },
+      {
+        "start": 57.011,
+        "end": 142.501,
+        "mbit": 12.5
+      },
+      {
+        "start": 142.501,
+        "end": 186.709,
+        "mbit": 20.0
+      },
+      {
+        "start": 186.709,
+        "end": 271.964,
+        "mbit": 22.5
+      },
+      {
+        "start": 271.964,
+        "end": 306.792,
+        "mbit": 17.5
+      },
+      {
+        "start": 306.792,
+        "end": 376.755,
+        "mbit": 22.5
+      },
+      {
+        "start": 376.755,
+        "end": 461.093,
+        "mbit": 15.0
+      },
+      {
+        "start": 461.093,
+        "end": 541.167,
+        "mbit": 17.5
+      },
+      {
+        "start": 541.167,
+        "end": 629.687,
+        "mbit": 30.0
+      },
+      {
+        "start": 629.687,
+        "end": 674.067,
+        "mbit": 10.0
+      },
+      {
+        "start": 674.067,
+        "end": 726.546,
+        "mbit": 15.0
+      },
+      {
+        "start": 726.546,
+        "end": 798.154,
+        "mbit": 17.5
+      },
+      {
+        "start": 798.154,
+        "end": 848.314,
+        "mbit": 20.0
+      },
+      {
+        "start": 848.314,
+        "end": 888.32,
+        "mbit": 17.5
+      },
+      {
+        "start": 888.32,
+        "end": 900,
+        "mbit": 27.5
+      }
+    ],
+    "episodes": [
+      {
+        "id": 1,
+        "start": 248.323,
+        "ramp_end": 288.938,
+        "hold_end": 365.836,
+        "end": 379.329
+      },
+      {
+        "id": 2,
+        "start": 523.573,
+        "ramp_end": 571.058,
+        "hold_end": 613.474,
+        "end": 623.608
+      },
+      {
+        "id": 3,
+        "start": 735.296,
+        "ramp_end": 774.011,
+        "hold_end": 841.494,
+        "end": 848.499
+      }
+    ],
+    "excursions": [
+      {
+        "id": 1,
+        "kind": "delay",
+        "magnitude": 14.32,
+        "start": 130.215,
+        "ramp_end": 149.459,
+        "hold_end": 174.522,
+        "end": 186.1
+      },
+      {
+        "id": 2,
+        "kind": "delay",
+        "magnitude": 5.91,
+        "start": 445.552,
+        "ramp_end": 457.416,
+        "hold_end": 479.681,
+        "end": 485.468
+      }
+    ]
+  },
+  "actions": [
+    {
+      "t": 0.0,
+      "bg_flows": 5
+    },
+    {
+      "t": 131.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 133.002,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 134.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 135.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 137.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 138.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 139.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 141.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 142.006,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 143.0,
+      "bg_flows": 8
+    },
+    {
+      "t": 143.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 145.0,
+      "netem_delay_ms": 16.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 146.0,
+      "netem_delay_ms": 17.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 148.0,
+      "netem_delay_ms": 18.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 149.0,
+      "netem_delay_ms": 19.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 176.0,
+      "netem_delay_ms": 17.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 177.0,
+      "netem_delay_ms": 16.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 178.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 179.0,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 180.0,
+      "netem_delay_ms": 13.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 181.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 182.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 183.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 184.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 185.001,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 186.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 187.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 249.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 250.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 251.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 252.0,
+      "netem_delay_ms": 18.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 253.0,
+      "netem_delay_ms": 22.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 254.0,
+      "netem_delay_ms": 25.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 255.0,
+      "netem_delay_ms": 29.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 256.0,
+      "netem_delay_ms": 32.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 257.003,
+      "netem_delay_ms": 36.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 258.035,
+      "netem_delay_ms": 40.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 259.0,
+      "netem_delay_ms": 43.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 260.0,
+      "netem_delay_ms": 47.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 261.0,
+      "netem_delay_ms": 50.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 262.0,
+      "netem_delay_ms": 54.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 263.001,
+      "netem_delay_ms": 57.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 264.0,
+      "netem_delay_ms": 61.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 265.0,
+      "netem_delay_ms": 65.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 266.0,
+      "netem_delay_ms": 68.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 267.0,
+      "netem_delay_ms": 72.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 268.0,
+      "netem_delay_ms": 75.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 269.0,
+      "netem_delay_ms": 79.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 270.0,
+      "netem_delay_ms": 82.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 271.0,
+      "netem_delay_ms": 86.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 272.0,
+      "netem_delay_ms": 90.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 273.0,
+      "netem_delay_ms": 93.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 274.0,
+      "netem_delay_ms": 97.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 275.0,
+      "netem_delay_ms": 100.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 276.0,
+      "netem_delay_ms": 104.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 277.0,
+      "netem_delay_ms": 107.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 278.0,
+      "netem_delay_ms": 111.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 279.0,
+      "netem_delay_ms": 115.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 280.0,
+      "netem_delay_ms": 118.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 281.0,
+      "netem_delay_ms": 122.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 282.0,
+      "netem_delay_ms": 125.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 283.0,
+      "netem_delay_ms": 129.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 284.0,
+      "netem_delay_ms": 132.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 285.0,
+      "netem_delay_ms": 136.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 286.0,
+      "netem_delay_ms": 140.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 287.0,
+      "netem_delay_ms": 143.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 288.0,
+      "netem_delay_ms": 147.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 289.0,
+      "netem_delay_ms": 150.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 366.0,
+      "netem_delay_ms": 148.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 367.0,
+      "netem_delay_ms": 137.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 368.0,
+      "netem_delay_ms": 127.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 369.0,
+      "netem_delay_ms": 116.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 370.0,
+      "netem_delay_ms": 105.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 371.0,
+      "netem_delay_ms": 95.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 372.0,
+      "netem_delay_ms": 84.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 373.0,
+      "netem_delay_ms": 73.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 374.162,
+      "netem_delay_ms": 61.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 375.0,
+      "netem_delay_ms": 52.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 376.0,
+      "netem_delay_ms": 41.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 377.0,
+      "netem_delay_ms": 30.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 378.0,
+      "netem_delay_ms": 19.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 379.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 380.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 380.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 447.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 449.0,
+      "netem_delay_ms": 7.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 451.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 453.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 455.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 457.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 462.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 481.0,
+      "netem_delay_ms": 10.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 482.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 483.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 484.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 485.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 524.0,
+      "netem_delay_ms": 6.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 525.0,
+      "netem_delay_ms": 9.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 526.0,
+      "netem_delay_ms": 12.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 527.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 528.0,
+      "netem_delay_ms": 19.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 529.0,
+      "netem_delay_ms": 22.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 530.0,
+      "netem_delay_ms": 25.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 531.0,
+      "netem_delay_ms": 28.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 532.0,
+      "netem_delay_ms": 31.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 533.0,
+      "netem_delay_ms": 34.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 534.0,
+      "netem_delay_ms": 37.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 535.0,
+      "netem_delay_ms": 40.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 536.0,
+      "netem_delay_ms": 43.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 537.0,
+      "netem_delay_ms": 46.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 538.0,
+      "netem_delay_ms": 49.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 539.0,
+      "netem_delay_ms": 52.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 540.0,
+      "netem_delay_ms": 55.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 541.0,
+      "netem_delay_ms": 58.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 542.0,
+      "netem_delay_ms": 61.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 543.0,
+      "netem_delay_ms": 64.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 544.0,
+      "netem_delay_ms": 67.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 545.0,
+      "netem_delay_ms": 70.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 546.0,
+      "netem_delay_ms": 73.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 547.0,
+      "netem_delay_ms": 77.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 548.001,
+      "netem_delay_ms": 80.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 549.001,
+      "netem_delay_ms": 83.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 550.0,
+      "netem_delay_ms": 86.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 551.002,
+      "netem_delay_ms": 89.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 552.0,
+      "netem_delay_ms": 92.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 553.002,
+      "netem_delay_ms": 95.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 554.0,
+      "netem_delay_ms": 98.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 555.0,
+      "netem_delay_ms": 101.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 556.0,
+      "netem_delay_ms": 104.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 557.0,
+      "netem_delay_ms": 107.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 558.0,
+      "netem_delay_ms": 110.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 559.0,
+      "netem_delay_ms": 113.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 560.0,
+      "netem_delay_ms": 116.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 561.0,
+      "netem_delay_ms": 119.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 562.0,
+      "netem_delay_ms": 122.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 563.0,
+      "netem_delay_ms": 125.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 564.0,
+      "netem_delay_ms": 128.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 565.0,
+      "netem_delay_ms": 132.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 566.0,
+      "netem_delay_ms": 135.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 567.0,
+      "netem_delay_ms": 138.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 568.0,
+      "netem_delay_ms": 141.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 569.0,
+      "netem_delay_ms": 144.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 570.0,
+      "netem_delay_ms": 147.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 571.0,
+      "netem_delay_ms": 150.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 614.0,
+      "netem_delay_ms": 142.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 615.0,
+      "netem_delay_ms": 128.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 616.0,
+      "netem_delay_ms": 114.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 617.0,
+      "netem_delay_ms": 100.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 618.0,
+      "netem_delay_ms": 85.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 619.0,
+      "netem_delay_ms": 71.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 620.0,
+      "netem_delay_ms": 57.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 621.0,
+      "netem_delay_ms": 42.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 622.0,
+      "netem_delay_ms": 28.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 623.001,
+      "netem_delay_ms": 14.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 624.227,
+      "bg_flows": 12
+    },
+    {
+      "t": 624.227,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 630.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 675.002,
+      "bg_flows": 6
+    },
+    {
+      "t": 727.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 736.0,
+      "netem_delay_ms": 8.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 737.0,
+      "netem_delay_ms": 11.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 738.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 739.0,
+      "netem_delay_ms": 19.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 740.132,
+      "netem_delay_ms": 23.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 741.0,
+      "netem_delay_ms": 26.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 742.0,
+      "netem_delay_ms": 30.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 743.0,
+      "netem_delay_ms": 34.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 744.0,
+      "netem_delay_ms": 38.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 745.0,
+      "netem_delay_ms": 41.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 746.0,
+      "netem_delay_ms": 45.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 747.0,
+      "netem_delay_ms": 49.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 748.0,
+      "netem_delay_ms": 53.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 749.0,
+      "netem_delay_ms": 56.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 750.0,
+      "netem_delay_ms": 60.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 751.0,
+      "netem_delay_ms": 64.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 752.0,
+      "netem_delay_ms": 68.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 753.0,
+      "netem_delay_ms": 71.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 754.0,
+      "netem_delay_ms": 75.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 755.0,
+      "netem_delay_ms": 79.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 756.0,
+      "netem_delay_ms": 83.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 757.0,
+      "netem_delay_ms": 86.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 758.002,
+      "netem_delay_ms": 90.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 759.0,
+      "netem_delay_ms": 94.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 760.0,
+      "netem_delay_ms": 98.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 761.0,
+      "netem_delay_ms": 101.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 762.0,
+      "netem_delay_ms": 105.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 763.001,
+      "netem_delay_ms": 109.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 764.0,
+      "netem_delay_ms": 113.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 765.0,
+      "netem_delay_ms": 116.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 766.0,
+      "netem_delay_ms": 120.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 767.0,
+      "netem_delay_ms": 124.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 768.0,
+      "netem_delay_ms": 127.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 769.0,
+      "netem_delay_ms": 131.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 770.0,
+      "netem_delay_ms": 135.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 771.0,
+      "netem_delay_ms": 139.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 772.0,
+      "netem_delay_ms": 142.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 773.0,
+      "netem_delay_ms": 146.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 774.0,
+      "netem_delay_ms": 150.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 842.0,
+      "netem_delay_ms": 140.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 843.0,
+      "netem_delay_ms": 119.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 844.0,
+      "netem_delay_ms": 98.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 845.0,
+      "netem_delay_ms": 77.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 846.0,
+      "netem_delay_ms": 57.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 847.0,
+      "netem_delay_ms": 36.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 848.0,
+      "netem_delay_ms": 15.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 849.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 889.0,
+      "bg_flows": 11
+    }
+  ],
+  "warnings": [],
+  "baseline_latency_ms": 40.3,
+  "observed_onsets": {
+    "1": 265.0,
+    "2": 542.0,
+    "3": 751.0
+  },
+  "burst_onsets": [],
+  "finished_at": "2026-10-02T15:30:32.718763+00:00",
+  "interrupted": false
+}

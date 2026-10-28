@@ -1,0 +1,915 @@
+{
+  "experiment_id": "bandwidth_degradation_2",
+  "scenario": "bandwidth_degradation",
+  "seed": 2424993775,
+  "duration_sec": 900,
+  "interval_sec": 1.0,
+  "config": {
+    "BASE_DIR": "/mnt/utm/ML_Project/data/raw",
+    "LOCAL_DIR": "/var/tmp/ml_network_runs",
+    "DEFAULT_DURATION": 900,
+    "INTERVAL": 1.0,
+    "MAX_SCHEDULE_LAG": 2.0,
+    "SCENARIOS": [
+      "normal",
+      "congestion",
+      "high_latency",
+      "packet_loss",
+      "bandwidth_degradation",
+      "queue_buildup",
+      "traffic_burst"
+    ],
+    "LINK_DELAY_MS": 5.0,
+    "BOTTLENECK_MBIT": 50.0,
+    "RETURN_RATE_MBIT": 100.0,
+    "TBF_BURST": "64kb",
+    "TBF_LATENCY": "400ms",
+    "NETEM_LIMIT": 10000,
+    "FLOW_UNIT_MBIT": 2.5,
+    "FLOW_PAYLOAD": 1400,
+    "BG_LEVELS_MBIT": [
+      10.0,
+      12.5,
+      15.0,
+      17.5,
+      20.0,
+      22.5,
+      25.0,
+      27.5,
+      30.0
+    ],
+    "BG_SEGMENT_SEC": [
+      30.0,
+      90.0
+    ],
+    "MAX_BG_FLOWS": 16,
+    "MAX_CROSS_FLOWS": 28,
+    "BG_PORT_BASE": 5100,
+    "CROSS_PORT_BASE": 5200,
+    "PING_TARGET": "10.0.1.1",
+    "PING_INTERVAL": 0.2,
+    "PING_LOSS_WINDOW": 10.0,
+    "PING_SETTLE": 2.0,
+    "PING_MIN_PROBES": 20,
+    "BASELINE_WINDOW": [
+      5.0,
+      60.0
+    ],
+    "FIRST_EPISODE_START": [
+      150.0,
+      300.0
+    ],
+    "EPISODE_RAMP": [
+      20.0,
+      60.0
+    ],
+    "EPISODE_HOLD": [
+      40.0,
+      90.0
+    ],
+    "EPISODE_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EPISODE_GAP": [
+      90.0,
+      180.0
+    ],
+    "END_MARGIN": 30.0,
+    "COOLDOWN_SEC": 15.0,
+    "BURST_TRAIN": [
+      60.0,
+      120.0
+    ],
+    "BURST_ON": [
+      4.0,
+      12.0
+    ],
+    "BURST_OFF": [
+      6.0,
+      25.0
+    ],
+    "BURST_MBIT": 45.0,
+    "EXCURSION_MEAN_SPACING": 180.0,
+    "EXCURSION_EARLIEST": 90.0,
+    "EXCURSION_CLEARANCE": 30.0,
+    "EXCURSION_RAMP": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_HOLD": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EXCURSION_LOAD_MBIT": [
+      2.5,
+      10.0
+    ],
+    "EXCURSION_DELAY_MS": [
+      5.0,
+      25.0
+    ],
+    "EXCURSION_LOSS_PCT": [
+      0.5,
+      3.0
+    ],
+    "CONGESTION_EXTRA_MBIT": 60.0,
+    "WIRE_OVERHEAD": 1.0549,
+    "QUEUE_TARGET_FRACTION": 0.6,
+    "QUEUE_CEILING_FACTOR": 1.15,
+    "QUEUE_CTRL_TAU": 6.0,
+    "QUEUE_CTRL_KI": 0.03,
+    "QUEUE_GUARD_FRACTION": 0.85,
+    "QUEUE_MAX_EXCESS": 0.025,
+    "QUEUE_CTRL_I_MAX": 2.0,
+    "TRIM_PORT": 5300,
+    "TRIM_MIN_STEP_MBIT": 0.1,
+    "DEGRADED_RATE_MBIT": 8.0,
+    "HIGH_DELAY_MS": 150.0,
+    "LOSS_TARGET_PCT": 20.0,
+    "LAT_RISE_MS": 50.0,
+    "LOSS_ONSET_PCT": 5.0,
+    "DROP_RATIO_ONSET": 0.02,
+    "QUEUE_DELAY_ONSET_MS": 50.0,
+    "SHORTFALL_ONSET": 0.1,
+    "STOP_REQUESTED": false,
+    "TBF_BUFFER_BYTES": 2565536.0,
+    "STAT_NAMES": [
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors"
+    ],
+    "TC_MARKER": "__TC_BEGIN__",
+    "FIELDNAMES": [
+      "experiment_id",
+      "scenario",
+      "seed",
+      "timestamp",
+      "elapsed_sec",
+      "actual_delta_t",
+      "sampling_delay_sec",
+      "phase",
+      "episode_id",
+      "benign_excursion",
+      "injected_intensity",
+      "injected_bg_mbit",
+      "injected_cross_mbit",
+      "injected_delay_ms",
+      "injected_loss_pct",
+      "injected_rate_mbit",
+      "injected_queue_target_bytes",
+      "latency_ms",
+      "latency_max_ms",
+      "ping_replies",
+      "ping_loss_pct",
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors",
+      "rx_bytes_per_sec",
+      "tx_bytes_per_sec",
+      "rx_packets_per_sec",
+      "tx_packets_per_sec",
+      "tx_dropped_per_sec",
+      "ingress_rx_bytes_per_sec",
+      "ingress_rx_packets_per_sec",
+      "qdisc_dropped",
+      "qdisc_dropped_per_sec",
+      "tbf_dropped_per_sec",
+      "netem_dropped_per_sec",
+      "qdisc_backlog_bytes",
+      "qdisc_backlog_packets",
+      "netem_backlog_packets",
+      "label",
+      "anomaly_type"
+    ]
+  },
+  "schedule": {
+    "background": [
+      {
+        "start": 0.0,
+        "end": 79.404,
+        "mbit": 20.0
+      },
+      {
+        "start": 79.404,
+        "end": 129.43,
+        "mbit": 22.5
+      },
+      {
+        "start": 129.43,
+        "end": 218.826,
+        "mbit": 17.5
+      },
+      {
+        "start": 218.826,
+        "end": 257.906,
+        "mbit": 17.5
+      },
+      {
+        "start": 257.906,
+        "end": 313.26,
+        "mbit": 30.0
+      },
+      {
+        "start": 313.26,
+        "end": 397.28,
+        "mbit": 12.5
+      },
+      {
+        "start": 397.28,
+        "end": 428.87,
+        "mbit": 15.0
+      },
+      {
+        "start": 428.87,
+        "end": 473.749,
+        "mbit": 30.0
+      },
+      {
+        "start": 473.749,
+        "end": 547.829,
+        "mbit": 22.5
+      },
+      {
+        "start": 547.829,
+        "end": 632.976,
+        "mbit": 17.5
+      },
+      {
+        "start": 632.976,
+        "end": 722.708,
+        "mbit": 22.5
+      },
+      {
+        "start": 722.708,
+        "end": 802.724,
+        "mbit": 22.5
+      },
+      {
+        "start": 802.724,
+        "end": 885.936,
+        "mbit": 22.5
+      },
+      {
+        "start": 885.936,
+        "end": 900,
+        "mbit": 10.0
+      }
+    ],
+    "episodes": [
+      {
+        "id": 1,
+        "start": 179.294,
+        "ramp_end": 233.398,
+        "hold_end": 297.147,
+        "end": 307.392
+      },
+      {
+        "id": 2,
+        "start": 478.027,
+        "ramp_end": 529.937,
+        "hold_end": 595.669,
+        "end": 606.186
+      }
+    ],
+    "excursions": [
+      {
+        "id": 1,
+        "kind": "loss",
+        "magnitude": 0.53,
+        "start": 371.007,
+        "ramp_end": 399.726,
+        "hold_end": 429.096,
+        "end": 434.507
+      },
+      {
+        "id": 2,
+        "kind": "loss",
+        "magnitude": 1.19,
+        "start": 700.569,
+        "ramp_end": 716.176,
+        "hold_end": 727.906,
+        "end": 742.223
+      }
+    ]
+  },
+  "actions": [
+    {
+      "t": 0.0,
+      "bg_flows": 8
+    },
+    {
+      "t": 80.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 130.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 180.0,
+      "tbf_rate_mbit": 49.5
+    },
+    {
+      "t": 181.0,
+      "tbf_rate_mbit": 48.5
+    },
+    {
+      "t": 182.0,
+      "tbf_rate_mbit": 48.0
+    },
+    {
+      "t": 183.0,
+      "tbf_rate_mbit": 47.0
+    },
+    {
+      "t": 184.0,
+      "tbf_rate_mbit": 46.5
+    },
+    {
+      "t": 185.0,
+      "tbf_rate_mbit": 45.5
+    },
+    {
+      "t": 186.0,
+      "tbf_rate_mbit": 45.0
+    },
+    {
+      "t": 187.0,
+      "tbf_rate_mbit": 44.0
+    },
+    {
+      "t": 188.0,
+      "tbf_rate_mbit": 43.0
+    },
+    {
+      "t": 189.0,
+      "tbf_rate_mbit": 42.5
+    },
+    {
+      "t": 190.0,
+      "tbf_rate_mbit": 41.5
+    },
+    {
+      "t": 191.0,
+      "tbf_rate_mbit": 41.0
+    },
+    {
+      "t": 192.0,
+      "tbf_rate_mbit": 40.0
+    },
+    {
+      "t": 193.0,
+      "tbf_rate_mbit": 39.5
+    },
+    {
+      "t": 194.0,
+      "tbf_rate_mbit": 38.5
+    },
+    {
+      "t": 195.0,
+      "tbf_rate_mbit": 38.0
+    },
+    {
+      "t": 196.0,
+      "tbf_rate_mbit": 37.0
+    },
+    {
+      "t": 197.0,
+      "tbf_rate_mbit": 36.5
+    },
+    {
+      "t": 198.0,
+      "tbf_rate_mbit": 35.5
+    },
+    {
+      "t": 199.0,
+      "tbf_rate_mbit": 34.5
+    },
+    {
+      "t": 200.0,
+      "tbf_rate_mbit": 34.0
+    },
+    {
+      "t": 201.0,
+      "tbf_rate_mbit": 33.0
+    },
+    {
+      "t": 202.0,
+      "tbf_rate_mbit": 32.5
+    },
+    {
+      "t": 203.0,
+      "tbf_rate_mbit": 31.5
+    },
+    {
+      "t": 204.0,
+      "tbf_rate_mbit": 31.0
+    },
+    {
+      "t": 205.0,
+      "tbf_rate_mbit": 30.0
+    },
+    {
+      "t": 206.0,
+      "tbf_rate_mbit": 29.5
+    },
+    {
+      "t": 207.0,
+      "tbf_rate_mbit": 28.5
+    },
+    {
+      "t": 208.0,
+      "tbf_rate_mbit": 27.5
+    },
+    {
+      "t": 209.0,
+      "tbf_rate_mbit": 27.0
+    },
+    {
+      "t": 210.0,
+      "tbf_rate_mbit": 26.0
+    },
+    {
+      "t": 211.0,
+      "tbf_rate_mbit": 25.5
+    },
+    {
+      "t": 212.0,
+      "tbf_rate_mbit": 24.5
+    },
+    {
+      "t": 213.0,
+      "tbf_rate_mbit": 24.0
+    },
+    {
+      "t": 214.0,
+      "tbf_rate_mbit": 23.0
+    },
+    {
+      "t": 215.0,
+      "tbf_rate_mbit": 22.5
+    },
+    {
+      "t": 216.0,
+      "tbf_rate_mbit": 21.5
+    },
+    {
+      "t": 217.0,
+      "tbf_rate_mbit": 20.5
+    },
+    {
+      "t": 218.0,
+      "tbf_rate_mbit": 20.0
+    },
+    {
+      "t": 219.0,
+      "tbf_rate_mbit": 19.0
+    },
+    {
+      "t": 220.0,
+      "tbf_rate_mbit": 18.5
+    },
+    {
+      "t": 221.0,
+      "tbf_rate_mbit": 17.5
+    },
+    {
+      "t": 222.0,
+      "tbf_rate_mbit": 17.0
+    },
+    {
+      "t": 223.0,
+      "tbf_rate_mbit": 16.0
+    },
+    {
+      "t": 224.0,
+      "tbf_rate_mbit": 15.5
+    },
+    {
+      "t": 225.0,
+      "tbf_rate_mbit": 14.5
+    },
+    {
+      "t": 226.0,
+      "tbf_rate_mbit": 13.5
+    },
+    {
+      "t": 227.0,
+      "tbf_rate_mbit": 13.0
+    },
+    {
+      "t": 228.0,
+      "tbf_rate_mbit": 12.0
+    },
+    {
+      "t": 229.0,
+      "tbf_rate_mbit": 11.5
+    },
+    {
+      "t": 230.0,
+      "tbf_rate_mbit": 10.5
+    },
+    {
+      "t": 231.0,
+      "tbf_rate_mbit": 10.0
+    },
+    {
+      "t": 232.0,
+      "tbf_rate_mbit": 9.0
+    },
+    {
+      "t": 233.0,
+      "tbf_rate_mbit": 8.5
+    },
+    {
+      "t": 234.0,
+      "tbf_rate_mbit": 8.0
+    },
+    {
+      "t": 298.0,
+      "tbf_rate_mbit": 11.5
+    },
+    {
+      "t": 299.0,
+      "tbf_rate_mbit": 15.5
+    },
+    {
+      "t": 300.0,
+      "tbf_rate_mbit": 19.5
+    },
+    {
+      "t": 301.0,
+      "tbf_rate_mbit": 24.0
+    },
+    {
+      "t": 302.0,
+      "tbf_rate_mbit": 28.0
+    },
+    {
+      "t": 303.0,
+      "tbf_rate_mbit": 32.0
+    },
+    {
+      "t": 304.0,
+      "tbf_rate_mbit": 36.0
+    },
+    {
+      "t": 305.0,
+      "tbf_rate_mbit": 40.0
+    },
+    {
+      "t": 306.0,
+      "tbf_rate_mbit": 44.5
+    },
+    {
+      "t": 307.0,
+      "tbf_rate_mbit": 48.5
+    },
+    {
+      "t": 308.0,
+      "bg_flows": 12
+    },
+    {
+      "t": 308.0,
+      "tbf_rate_mbit": 50.0
+    },
+    {
+      "t": 314.0,
+      "bg_flows": 5
+    },
+    {
+      "t": 385.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 398.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 429.0,
+      "bg_flows": 12
+    },
+    {
+      "t": 432.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 474.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 479.0,
+      "tbf_rate_mbit": 49.0
+    },
+    {
+      "t": 480.0,
+      "tbf_rate_mbit": 48.5
+    },
+    {
+      "t": 481.0,
+      "tbf_rate_mbit": 47.5
+    },
+    {
+      "t": 482.0,
+      "tbf_rate_mbit": 47.0
+    },
+    {
+      "t": 483.0,
+      "tbf_rate_mbit": 46.0
+    },
+    {
+      "t": 484.0,
+      "tbf_rate_mbit": 45.0
+    },
+    {
+      "t": 485.0,
+      "tbf_rate_mbit": 44.5
+    },
+    {
+      "t": 486.0,
+      "tbf_rate_mbit": 43.5
+    },
+    {
+      "t": 487.0,
+      "tbf_rate_mbit": 42.5
+    },
+    {
+      "t": 488.0,
+      "tbf_rate_mbit": 42.0
+    },
+    {
+      "t": 489.0,
+      "tbf_rate_mbit": 41.0
+    },
+    {
+      "t": 490.0,
+      "tbf_rate_mbit": 40.5
+    },
+    {
+      "t": 491.0,
+      "tbf_rate_mbit": 39.5
+    },
+    {
+      "t": 492.0,
+      "tbf_rate_mbit": 38.5
+    },
+    {
+      "t": 493.0,
+      "tbf_rate_mbit": 38.0
+    },
+    {
+      "t": 494.0,
+      "tbf_rate_mbit": 37.0
+    },
+    {
+      "t": 495.0,
+      "tbf_rate_mbit": 36.5
+    },
+    {
+      "t": 496.0,
+      "tbf_rate_mbit": 35.5
+    },
+    {
+      "t": 497.0,
+      "tbf_rate_mbit": 34.5
+    },
+    {
+      "t": 498.0,
+      "tbf_rate_mbit": 34.0
+    },
+    {
+      "t": 499.0,
+      "tbf_rate_mbit": 33.0
+    },
+    {
+      "t": 500.0,
+      "tbf_rate_mbit": 32.0
+    },
+    {
+      "t": 501.0,
+      "tbf_rate_mbit": 31.5
+    },
+    {
+      "t": 502.0,
+      "tbf_rate_mbit": 30.5
+    },
+    {
+      "t": 503.0,
+      "tbf_rate_mbit": 30.0
+    },
+    {
+      "t": 504.0,
+      "tbf_rate_mbit": 29.0
+    },
+    {
+      "t": 505.0,
+      "tbf_rate_mbit": 28.0
+    },
+    {
+      "t": 506.0,
+      "tbf_rate_mbit": 27.5
+    },
+    {
+      "t": 507.0,
+      "tbf_rate_mbit": 26.5
+    },
+    {
+      "t": 508.0,
+      "tbf_rate_mbit": 25.5
+    },
+    {
+      "t": 509.0,
+      "tbf_rate_mbit": 25.0
+    },
+    {
+      "t": 510.0,
+      "tbf_rate_mbit": 24.0
+    },
+    {
+      "t": 511.0,
+      "tbf_rate_mbit": 23.5
+    },
+    {
+      "t": 512.0,
+      "tbf_rate_mbit": 22.5
+    },
+    {
+      "t": 513.0,
+      "tbf_rate_mbit": 21.5
+    },
+    {
+      "t": 514.0,
+      "tbf_rate_mbit": 21.0
+    },
+    {
+      "t": 515.0,
+      "tbf_rate_mbit": 20.0
+    },
+    {
+      "t": 516.0,
+      "tbf_rate_mbit": 19.5
+    },
+    {
+      "t": 517.0,
+      "tbf_rate_mbit": 18.5
+    },
+    {
+      "t": 518.0,
+      "tbf_rate_mbit": 17.5
+    },
+    {
+      "t": 519.0,
+      "tbf_rate_mbit": 17.0
+    },
+    {
+      "t": 520.0,
+      "tbf_rate_mbit": 16.0
+    },
+    {
+      "t": 521.0,
+      "tbf_rate_mbit": 15.0
+    },
+    {
+      "t": 522.0,
+      "tbf_rate_mbit": 14.5
+    },
+    {
+      "t": 523.0,
+      "tbf_rate_mbit": 13.5
+    },
+    {
+      "t": 524.0,
+      "tbf_rate_mbit": 13.0
+    },
+    {
+      "t": 525.0,
+      "tbf_rate_mbit": 12.0
+    },
+    {
+      "t": 526.0,
+      "tbf_rate_mbit": 11.0
+    },
+    {
+      "t": 527.0,
+      "tbf_rate_mbit": 10.5
+    },
+    {
+      "t": 528.0,
+      "tbf_rate_mbit": 9.5
+    },
+    {
+      "t": 529.0,
+      "tbf_rate_mbit": 9.0
+    },
+    {
+      "t": 530.0,
+      "tbf_rate_mbit": 8.0
+    },
+    {
+      "t": 596.0,
+      "tbf_rate_mbit": 9.5
+    },
+    {
+      "t": 597.0,
+      "tbf_rate_mbit": 13.5
+    },
+    {
+      "t": 598.0,
+      "tbf_rate_mbit": 17.5
+    },
+    {
+      "t": 599.0,
+      "tbf_rate_mbit": 21.5
+    },
+    {
+      "t": 600.0,
+      "tbf_rate_mbit": 25.5
+    },
+    {
+      "t": 601.0,
+      "tbf_rate_mbit": 29.5
+    },
+    {
+      "t": 602.0,
+      "tbf_rate_mbit": 33.5
+    },
+    {
+      "t": 603.0,
+      "tbf_rate_mbit": 37.5
+    },
+    {
+      "t": 604.0,
+      "tbf_rate_mbit": 41.5
+    },
+    {
+      "t": 605.0,
+      "tbf_rate_mbit": 45.5
+    },
+    {
+      "t": 606.0,
+      "tbf_rate_mbit": 49.5
+    },
+    {
+      "t": 607.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 607.0,
+      "tbf_rate_mbit": 50.0
+    },
+    {
+      "t": 633.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 704.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 711.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 734.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 740.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 886.0,
+      "bg_flows": 4
+    }
+  ],
+  "warnings": [],
+  "baseline_latency_ms": 40.3,
+  "observed_onsets": {
+    "1": 223.0,
+    "2": 514.0
+  },
+  "burst_onsets": [],
+  "finished_at": "2026-10-02T21:32:14.249996+00:00",
+  "interrupted": false
+}

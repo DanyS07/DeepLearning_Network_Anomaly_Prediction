@@ -1,0 +1,503 @@
+{
+  "experiment_id": "normal_4",
+  "scenario": "normal",
+  "seed": 2679969802,
+  "duration_sec": 900,
+  "interval_sec": 1.0,
+  "config": {
+    "BASE_DIR": "/mnt/utm/ML_Project/data/raw",
+    "LOCAL_DIR": "/var/tmp/ml_network_runs",
+    "DEFAULT_DURATION": 900,
+    "INTERVAL": 1.0,
+    "MAX_SCHEDULE_LAG": 2.0,
+    "SCENARIOS": [
+      "normal",
+      "congestion",
+      "high_latency",
+      "packet_loss",
+      "bandwidth_degradation",
+      "queue_buildup",
+      "traffic_burst"
+    ],
+    "LINK_DELAY_MS": 5.0,
+    "BOTTLENECK_MBIT": 50.0,
+    "RETURN_RATE_MBIT": 100.0,
+    "TBF_BURST": "64kb",
+    "TBF_LATENCY": "400ms",
+    "NETEM_LIMIT": 10000,
+    "FLOW_UNIT_MBIT": 2.5,
+    "FLOW_PAYLOAD": 1400,
+    "BG_LEVELS_MBIT": [
+      10.0,
+      12.5,
+      15.0,
+      17.5,
+      20.0,
+      22.5,
+      25.0,
+      27.5,
+      30.0
+    ],
+    "BG_SEGMENT_SEC": [
+      30.0,
+      90.0
+    ],
+    "MAX_BG_FLOWS": 16,
+    "MAX_CROSS_FLOWS": 28,
+    "BG_PORT_BASE": 5100,
+    "CROSS_PORT_BASE": 5200,
+    "PING_TARGET": "10.0.1.1",
+    "PING_INTERVAL": 0.2,
+    "PING_LOSS_WINDOW": 10.0,
+    "PING_SETTLE": 2.0,
+    "PING_MIN_PROBES": 20,
+    "BASELINE_WINDOW": [
+      5.0,
+      60.0
+    ],
+    "FIRST_EPISODE_START": [
+      150.0,
+      300.0
+    ],
+    "EPISODE_RAMP": [
+      20.0,
+      60.0
+    ],
+    "EPISODE_HOLD": [
+      40.0,
+      90.0
+    ],
+    "EPISODE_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EPISODE_GAP": [
+      90.0,
+      180.0
+    ],
+    "END_MARGIN": 30.0,
+    "COOLDOWN_SEC": 15.0,
+    "BURST_TRAIN": [
+      60.0,
+      120.0
+    ],
+    "BURST_ON": [
+      4.0,
+      12.0
+    ],
+    "BURST_OFF": [
+      6.0,
+      25.0
+    ],
+    "BURST_MBIT": 45.0,
+    "EXCURSION_MEAN_SPACING": 180.0,
+    "EXCURSION_EARLIEST": 90.0,
+    "EXCURSION_CLEARANCE": 30.0,
+    "EXCURSION_RAMP": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_HOLD": [
+      10.0,
+      30.0
+    ],
+    "EXCURSION_RECOVERY": [
+      5.0,
+      15.0
+    ],
+    "EXCURSION_LOAD_MBIT": [
+      2.5,
+      10.0
+    ],
+    "EXCURSION_DELAY_MS": [
+      5.0,
+      25.0
+    ],
+    "EXCURSION_LOSS_PCT": [
+      0.5,
+      3.0
+    ],
+    "CONGESTION_EXTRA_MBIT": 60.0,
+    "WIRE_OVERHEAD": 1.0549,
+    "QUEUE_TARGET_FRACTION": 0.6,
+    "QUEUE_CEILING_FACTOR": 1.15,
+    "QUEUE_CTRL_TAU": 6.0,
+    "QUEUE_CTRL_KI": 0.03,
+    "QUEUE_GUARD_FRACTION": 0.85,
+    "QUEUE_MAX_EXCESS": 0.025,
+    "QUEUE_CTRL_I_MAX": 2.0,
+    "TRIM_PORT": 5300,
+    "TRIM_MIN_STEP_MBIT": 0.1,
+    "DEGRADED_RATE_MBIT": 8.0,
+    "HIGH_DELAY_MS": 150.0,
+    "LOSS_TARGET_PCT": 20.0,
+    "LAT_RISE_MS": 50.0,
+    "LOSS_ONSET_PCT": 5.0,
+    "DROP_RATIO_ONSET": 0.02,
+    "QUEUE_DELAY_ONSET_MS": 50.0,
+    "SHORTFALL_ONSET": 0.1,
+    "STOP_REQUESTED": false,
+    "TBF_BUFFER_BYTES": 2565536.0,
+    "STAT_NAMES": [
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors"
+    ],
+    "TC_MARKER": "__TC_BEGIN__",
+    "FIELDNAMES": [
+      "experiment_id",
+      "scenario",
+      "seed",
+      "timestamp",
+      "elapsed_sec",
+      "actual_delta_t",
+      "sampling_delay_sec",
+      "phase",
+      "episode_id",
+      "benign_excursion",
+      "injected_intensity",
+      "injected_bg_mbit",
+      "injected_cross_mbit",
+      "injected_delay_ms",
+      "injected_loss_pct",
+      "injected_rate_mbit",
+      "injected_queue_target_bytes",
+      "latency_ms",
+      "latency_max_ms",
+      "ping_replies",
+      "ping_loss_pct",
+      "rx_bytes",
+      "tx_bytes",
+      "rx_packets",
+      "tx_packets",
+      "rx_dropped",
+      "tx_dropped",
+      "rx_errors",
+      "tx_errors",
+      "rx_bytes_per_sec",
+      "tx_bytes_per_sec",
+      "rx_packets_per_sec",
+      "tx_packets_per_sec",
+      "tx_dropped_per_sec",
+      "ingress_rx_bytes_per_sec",
+      "ingress_rx_packets_per_sec",
+      "qdisc_dropped",
+      "qdisc_dropped_per_sec",
+      "tbf_dropped_per_sec",
+      "netem_dropped_per_sec",
+      "qdisc_backlog_bytes",
+      "qdisc_backlog_packets",
+      "netem_backlog_packets",
+      "label",
+      "anomaly_type"
+    ]
+  },
+  "schedule": {
+    "background": [
+      {
+        "start": 0.0,
+        "end": 89.743,
+        "mbit": 15.0
+      },
+      {
+        "start": 89.743,
+        "end": 161.496,
+        "mbit": 22.5
+      },
+      {
+        "start": 161.496,
+        "end": 211.634,
+        "mbit": 27.5
+      },
+      {
+        "start": 211.634,
+        "end": 288.751,
+        "mbit": 15.0
+      },
+      {
+        "start": 288.751,
+        "end": 348.524,
+        "mbit": 12.5
+      },
+      {
+        "start": 348.524,
+        "end": 380.014,
+        "mbit": 15.0
+      },
+      {
+        "start": 380.014,
+        "end": 468.636,
+        "mbit": 25.0
+      },
+      {
+        "start": 468.636,
+        "end": 520.286,
+        "mbit": 17.5
+      },
+      {
+        "start": 520.286,
+        "end": 560.913,
+        "mbit": 25.0
+      },
+      {
+        "start": 560.913,
+        "end": 607.812,
+        "mbit": 30.0
+      },
+      {
+        "start": 607.812,
+        "end": 663.4,
+        "mbit": 25.0
+      },
+      {
+        "start": 663.4,
+        "end": 741.26,
+        "mbit": 27.5
+      },
+      {
+        "start": 741.26,
+        "end": 817.086,
+        "mbit": 10.0
+      },
+      {
+        "start": 817.086,
+        "end": 900,
+        "mbit": 22.5
+      }
+    ],
+    "episodes": [],
+    "excursions": [
+      {
+        "id": 1,
+        "kind": "load",
+        "magnitude": 3.95,
+        "start": 244.814,
+        "ramp_end": 262.146,
+        "hold_end": 276.105,
+        "end": 283.69
+      },
+      {
+        "id": 2,
+        "kind": "loss",
+        "magnitude": 2.64,
+        "start": 347.006,
+        "ramp_end": 363.703,
+        "hold_end": 392.327,
+        "end": 397.873
+      },
+      {
+        "id": 3,
+        "kind": "loss",
+        "magnitude": 1.59,
+        "start": 574.213,
+        "ramp_end": 603.147,
+        "hold_end": 630.052,
+        "end": 640.026
+      },
+      {
+        "id": 4,
+        "kind": "loss",
+        "magnitude": 1.68,
+        "start": 677.68,
+        "ramp_end": 699.334,
+        "hold_end": 720.277,
+        "end": 726.81
+      }
+    ]
+  },
+  "actions": [
+    {
+      "t": 0.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 90.0,
+      "bg_flows": 9
+    },
+    {
+      "t": 162.0,
+      "bg_flows": 11
+    },
+    {
+      "t": 212.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 251.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 262.0,
+      "cross_flows": 2
+    },
+    {
+      "t": 277.0,
+      "cross_flows": 1
+    },
+    {
+      "t": 282.0,
+      "cross_flows": 0
+    },
+    {
+      "t": 289.0,
+      "bg_flows": 5
+    },
+    {
+      "t": 349.0,
+      "bg_flows": 6
+    },
+    {
+      "t": 349.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 352.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 355.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.5
+    },
+    {
+      "t": 359.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 2.0
+    },
+    {
+      "t": 362.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 2.5
+    },
+    {
+      "t": 381.0,
+      "bg_flows": 10
+    },
+    {
+      "t": 394.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 2.0
+    },
+    {
+      "t": 395.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.5
+    },
+    {
+      "t": 396.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 397.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 398.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 469.0,
+      "bg_flows": 7
+    },
+    {
+      "t": 521.0,
+      "bg_flows": 10
+    },
+    {
+      "t": 561.0,
+      "bg_flows": 12
+    },
+    {
+      "t": 579.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 588.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 597.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.5
+    },
+    {
+      "t": 608.0,
+      "bg_flows": 10
+    },
+    {
+      "t": 633.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 636.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 639.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 664.0,
+      "bg_flows": 11
+    },
+    {
+      "t": 681.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 688.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 694.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.5
+    },
+    {
+      "t": 722.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 1.0
+    },
+    {
+      "t": 724.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.5
+    },
+    {
+      "t": 726.0,
+      "netem_delay_ms": 5.0,
+      "netem_loss_pct": 0.0
+    },
+    {
+      "t": 742.0,
+      "bg_flows": 4
+    },
+    {
+      "t": 818.0,
+      "bg_flows": 9
+    }
+  ],
+  "warnings": [],
+  "baseline_latency_ms": 40.25,
+  "observed_onsets": {},
+  "burst_onsets": [],
+  "finished_at": "2026-10-02T12:13:08.239898+00:00",
+  "interrupted": false
+}

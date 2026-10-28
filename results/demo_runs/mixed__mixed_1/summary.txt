@@ -1,0 +1,90 @@
+======================================================================
+NEW RUN: new/mixed/mixed_1
+======================================================================
+
+rows 1473, windows 1444, gaps 0, baseline RTT 44.9 ms
+
+Episode order: high_latency @ 168 s, congestion @ 377 s, packet_loss @ 557 s, bandwidth_degradation @ 768 s, queue_buildup @ 990 s, traffic_burst @ 1221 s
+
+ONSETS (observed)
+----------------------------------------------------------------------
+      182 s  high_latency
+      386 s  congestion
+      564 s  packet_loss
+      802 s  bandwidth_degradation
+     1038 s  queue_buildup
+     1222 s  traffic_burst
+     1248 s  traffic_burst
+     1271 s  traffic_burst
+
+MODEL gru  (alarm threshold 0.8200, fa5)
+----------------------------------------------------------------------
+    1 high_latency             warned   10 s before
+    2 congestion               warned    1 s before
+    3 packet_loss              warned    5 s before
+    4 bandwidth_degradation    missed
+    5 queue_buildup            warned   10 s before
+    6 traffic_burst            missed
+    7 traffic_burst            warned    9 s before
+    8 traffic_burst            warned    9 s before
+  detected 6/8 onsets; mean lead 7.3 s
+  false alarms/h on normal seconds: 27.4  (13 min of normal time scored)
+
+MODEL lstm  (alarm threshold 0.7400, fa5)
+----------------------------------------------------------------------
+    1 high_latency             warned    9 s before
+    2 congestion               warned    1 s before
+    3 packet_loss              warned    5 s before
+    4 bandwidth_degradation    missed
+    5 queue_buildup            warned   10 s before
+    6 traffic_burst            missed
+    7 traffic_burst            warned    9 s before
+    8 traffic_burst            warned    9 s before
+  detected 6/8 onsets; mean lead 7.2 s
+  false alarms/h on normal seconds: 22.8  (13 min of normal time scored)
+
+MODEL tcn  (alarm threshold 0.9000, fa5)
+----------------------------------------------------------------------
+    1 high_latency             warned    9 s before
+    2 congestion               warned    2 s before
+    3 packet_loss              warned    5 s before
+    4 bandwidth_degradation    missed
+    5 queue_buildup            warned   10 s before
+    6 traffic_burst            missed
+    7 traffic_burst            warned    9 s before
+    8 traffic_burst            warned    9 s before
+  detected 6/8 onsets; mean lead 7.3 s
+  false alarms/h on normal seconds: 27.4  (13 min of normal time scored)
+
+MODEL logistic_regression  (alarm threshold 0.9790, fa5)
+----------------------------------------------------------------------
+    1 high_latency             warned    9 s before
+    2 congestion               missed (warned, wrong type)
+    3 packet_loss              warned    5 s before
+    4 bandwidth_degradation    missed
+    5 queue_buildup            warned   10 s before
+    6 traffic_burst            missed
+    7 traffic_burst            warned    9 s before
+    8 traffic_burst            warned    6 s before
+  detected 5/8 onsets; mean lead 7.8 s
+  false alarms/h on normal seconds: 4.6  (13 min of normal time scored)
+
+MODEL random_forest  (alarm threshold 0.5000, fa5)
+----------------------------------------------------------------------
+    1 high_latency             warned   10 s before
+    2 congestion               warned    1 s before
+    3 packet_loss              warned    5 s before
+    4 bandwidth_degradation    missed
+    5 queue_buildup            warned   10 s before
+    6 traffic_burst            missed
+    7 traffic_burst            warned    9 s before
+    8 traffic_burst            warned    9 s before
+  detected 6/8 onsets; mean lead 7.3 s
+  false alarms/h on normal seconds: 18.3  (13 min of normal time scored)
+
+RULE-BASED DETECTOR vs ground truth
+----------------------------------------------------------------------
+  anomaly seconds detected : 0.987
+  type correct (once shown): 1.000
+  detections of anomalies  : 8  (type changed 0, wrong type 0)
+  false detections         : 0

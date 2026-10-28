@@ -1,0 +1,71 @@
+======================================================================
+CROSS-VALIDATION FOLDS
+======================================================================
+
+Main machine : vbox
+Folds        : 5
+Runs in folds: 35   external runs: 35
+
+RUNS PER CLASS (main machine)
+----------------------------------------------------------------------
+bandwidth_degradation    5 runs
+congestion               5 runs
+high_latency             5 runs
+normal                   5 runs
+packet_loss              5 runs
+queue_buildup            5 runs
+traffic_burst            5 runs
+
+WINDOWS PER FOLD (train / validation / test)
+----------------------------------------------------------------------
+fold 0: windows  12363 /  4154 /  4229    onset events 84 / 26 / 24
+fold 1: windows  12545 /  4047 /  4154    onset events 80 / 28 / 26
+fold 2: windows  12475 /  4224 /  4047    onset events 77 / 29 / 28
+fold 3: windows  12430 /  4092 /  4224    onset events 78 / 27 / 29
+fold 4: windows  12425 /  4229 /  4092    onset events 83 / 24 / 27
+
+TEST RUNS PER FOLD
+----------------------------------------------------------------------
+fold 0: bandwidth_1, congestion_1, high_latency_1, normal_1, packet_loss_1, queue_buildup_1, traffic_1
+fold 1: bandwidth_2, congestion_2, high_latency_2, normal_2, packet_loss_2, queue_buildup_2, traffic_2
+fold 2: bandwidth_3, congestion_3, high_latency_3, normal_3, packet_loss_3, queue_buildup_3, traffic_3
+fold 3: bandwidth_4, congestion_4, high_latency_4, normal_4, packet_loss_4, queue_buildup_4, traffic_4
+fold 4: bandwidth_5, congestion_5, high_latency_5, normal_5, packet_loss_5, queue_buildup_5, traffic_5
+
+EXTERNAL (cross-machine test only)
+----------------------------------------------------------------------
+utm/bandwidth_degradation/bandwidth_degradation_1
+utm/bandwidth_degradation/bandwidth_degradation_2
+utm/bandwidth_degradation/bandwidth_degradation_3
+utm/bandwidth_degradation/bandwidth_degradation_4
+utm/bandwidth_degradation/bandwidth_degradation_5
+utm/congestion/congestion_1
+utm/congestion/congestion_2
+utm/congestion/congestion_3
+utm/congestion/congestion_4
+utm/congestion/congestion_5
+utm/high_latency/high_latency_1
+utm/high_latency/high_latency_2
+utm/high_latency/high_latency_3
+utm/high_latency/high_latency_4
+utm/high_latency/high_latency_5
+utm/normal/normal_1
+utm/normal/normal_2
+utm/normal/normal_3
+utm/normal/normal_4
+utm/normal/normal_5
+utm/packet_loss/packet_loss_1
+utm/packet_loss/packet_loss_2
+utm/packet_loss/packet_loss_3
+utm/packet_loss/packet_loss_4
+utm/packet_loss/packet_loss_5
+utm/queue_buildup/queue_buildup_1
+utm/queue_buildup/queue_buildup_2
+utm/queue_buildup/queue_buildup_3
+utm/queue_buildup/queue_buildup_4
+utm/queue_buildup/queue_buildup_5
+utm/traffic_burst/traffic_burst_1
+utm/traffic_burst/traffic_burst_2
+utm/traffic_burst/traffic_burst_3
+utm/traffic_burst/traffic_burst_4
+utm/traffic_burst/traffic_burst_5

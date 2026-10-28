@@ -1,0 +1,64 @@
+======================================================================
+FEATURE ENGINEERING REPORT
+======================================================================
+
+Rows             : 63488
+Runs             : 71
+Segments         : 347
+Model features   : 40
+
+FEATURES (mean / std over all rows)
+----------------------------------------------------------------------
+latency_rel                        1.2223       2.0763
+latency_max_rel                    1.6097       1.9774
+latency_spread                     0.6988       0.8489
+ping_loss_pct                      1.4046       4.8397
+ping_replies                       4.7465       0.7256
+offered_mbit                      25.1836      14.1758
+delivered_mbit                    23.4686      10.7911
+offered_pps                        7.5740       0.4632
+utilization                        0.4694       0.2158
+load_ratio                         0.5037       0.2835
+shortfall                          0.0396       0.1329
+queue_bytes                        1.6895       4.5733
+queue_packets                      0.8128       2.2181
+queue_delay_ms                     0.6368       1.7475
+drop_ratio                         0.0321       0.1193
+loss_ratio                         0.0089       0.0379
+missing_any                        0.0041       0.0641
+latency_rel_diff                   0.0236       0.9960
+queue_delay_ms_diff                0.0007       0.7183
+offered_mbit_diff                  0.0031       3.3670
+delivered_mbit_diff                0.0023       2.2279
+shortfall_diff                    -0.0000       0.0736
+drop_ratio_diff                   -0.0000       0.0192
+loss_ratio_diff                    0.0000       0.0035
+latency_rel_mean_5                 1.2915       2.0741
+latency_rel_std_5                  0.6182       1.0307
+queue_delay_ms_mean_5              0.6914       1.7808
+queue_delay_ms_std_5               0.2537       0.9455
+offered_mbit_mean_5               25.1757      13.8636
+offered_mbit_std_5                 0.9733       3.1564
+shortfall_mean_5                   0.0395       0.1235
+shortfall_std_5                    0.0171       0.0517
+latency_rel_mean_10                1.3590       2.0899
+latency_rel_std_10                 0.8087       1.2822
+queue_delay_ms_mean_10             0.7531       1.8180
+queue_delay_ms_std_10              0.3996       1.2247
+offered_mbit_mean_10              25.1707      13.5339
+offered_mbit_std_10                1.6076       4.1461
+shortfall_mean_10                  0.0395       0.1205
+shortfall_std_10                   0.0220       0.0545
+
+CHECKS
+----------------------------------------------------------------------
+NaN in features : 0
+Inf in features : 0
+Constant features: none
+
+MEAN latency_rel DURING NORMAL ROWS, PER MACHINE
+----------------------------------------------------------------------
+utm: 0.237 (signed-log ms, should be close to 0)
+vbox: 0.614 (signed-log ms, should be close to 0)
+
+Metadata columns (phase, episode_id, benign_excursion) are kept for later stages but are NOT model features.

@@ -1,0 +1,32 @@
+======================================================================
+SEQUENCE GENERATION REPORT
+======================================================================
+
+Lookback        : 30 s
+Features        : 40
+Windows         : 41603   shape (41603, 30, 40)
+Size on disk    : 199.7 MB
+
+WINDOWS PER TARGET
+----------------------------------------------------------------------
+normal                   39298
+traffic_burst            1050
+packet_loss              284
+high_latency             255
+bandwidth_degradation    249
+queue_buildup            237
+congestion               230
+
+ANCHORS SKIPPED (fewer than LOOKBACK rows of history)
+----------------------------------------------------------------------
+normal                   2265
+queue_buildup            20
+
+EVENTS WITH AT LEAST ONE WINDOW, PER CLASS
+----------------------------------------------------------------------
+bandwidth_degradation    26
+congestion               24
+high_latency             26
+packet_loss              30
+queue_buildup            24
+traffic_burst            129
